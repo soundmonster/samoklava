@@ -1,0 +1,76 @@
+models:
+    export:
+        models:
+            a:
+                models: {}
+                origin:
+                    - 0
+                    - 0
+            b:
+                paths:
+                    p1:
+                        type: line
+                        origin:
+                            - 90
+                            - 27.2
+                        end:
+                            - 100
+                            - 2.6999999999999993
+                    p2:
+                        type: line
+                        origin:
+                            - 100
+                            - 2.6999999999999993
+                        end:
+                            - 129.7238595
+                            - -28.251635999999998
+                    p3:
+                        type: line
+                        origin:
+                            - 129.7238595
+                            - -28.251635999999998
+                        end:
+                            - 116.2888306
+                            - -41.6866649
+                    p4:
+                        type: line
+                        origin:
+                            - 116.2888306
+                            - -41.6866649
+                        end:
+                            - 72.7071068
+                            - -16.5247449
+                    p5:
+                        type: line
+                        origin:
+                            - 72.7071068
+                            - -16.5247449
+                        end:
+                            - 26
+                            - -9.5
+                    p6:
+                        type: line
+                        origin:
+                            - 26
+                            - -9.5
+                        end:
+                            - 18
+                            - 17
+                    p7:
+                        type: line
+                        origin:
+                            - 18
+                            - 17
+                        end:
+                            - 90
+                            - 27.2
+                origin:
+                    - 0
+                    - 0
+        origin:
+            - 0
+            - 0
+units: mm
+origin:
+    - 0
+    - 0
