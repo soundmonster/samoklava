@@ -1,31 +1,15 @@
-```
-npm run gen
-docker run -w /board -v $(pwd):/board --rm soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py output/pcbs/main.kicad_pcb output/pcbs/main.ds
-docker run -w /board -v $(pwd):/board --rm soundmonster/freerouting_cli:v0.1.0 java -jar /opt/freerouting_cli.jar -de output/pcbs/main.dsn -do output/pcbs/main.ses
-docker run -w /board -v $(pwd):/board --rm soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/import_ses.py output/pcbs/main.kicad_pcb output/pcbs/main.ses --output-file output/pcbs/main-routed.kicad_pcb
-docker run -w /board -v $(pwd):/board --rm soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/run_drc.py output/pcbs/main-routed.kicad_pcb output/pcbs/drc/
-```
+# yamkbd
+## Yet another Miryoku keyboard
 
+![left](images/left.png) ![right](images/right.png)
 
+A 5x3 split keyboard with 3 thumbs. There is nothing interesting about the layout. It's inspired by Corne and Kyria, and
+has the exact number of keys needed to run the [Miryoku](https://github.com/manna-harbour/miryoku) layout.
 
+The interesting thing about this keyboard is that it's a declarative design made using [Ergogen](https://github.com/mrzealot/ergogen/). The build system:
+* uses Ergogen to translate YAML to a KiCad PCB and plate files for FR2 fab or laser cutting
+  * TODO pull out these files from the `output` folder and move them to some other target
+* uses [kicad-automation-scripts](https://github.com/productize/kicad-automation-scripts) and [FreeRouting](https://github.com/freerouting/freerouting) for autorouting the PCB
+* uses [KiKit](https://github.com/yaqwsx/KiKit) to render PCB previews (see top of this file) and Gerber files
 
-
-Export DSN
-```
- docker run -v $(pwd):/foo --rm -it soundmonster/kicad-automation-scripts:latest
-/usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py --record ./pcbs/main.kicad_pcb main.dsn
-```
-
-Autoroute
-```
-docker run -v $(pwd):/foo --rm -it soundmonster/freerouting_cli:v0.1.0 bash
-java -jar build/obj/freerouting_cli.jar -de ../../../../../roflkbd/output/pcbs/main.dsn -do ../../../../../roflkbd/output/pcbs/main.ses
-```
-
-
-import SES
-
-```
-docker run -v $(pwd):/foo --rm -it soundmonster/kicad-automation-scripts:latest
-/usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/import_ses.py /foo/pcbs/main.kicad_pcb /foo/main.ses --output-file /foo/main-routed.kicad_pcb
-```
+See the [Makefile](Makefile) for more details.

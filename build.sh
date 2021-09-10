@@ -13,4 +13,5 @@ ${cri_cmd} run ${cri_args} soundmonster/kicad-automation-scripts:latest /usr/lib
 # pcbdraw also supports a style file as JSON
 ${cri_cmd} run ${cri_args} yaqwsx/kikit:v0.7 pcbdraw --style builtin:set-white-enig.json output/pcbs/main-routed.kicad_pcb images/left.png
 ${cri_cmd} run ${cri_args} yaqwsx/kikit:v0.7 pcbdraw -b --style builtin:set-white-enig.json output/pcbs/main-routed.kicad_pcb images/right.png
+${cri_cmd} run ${cri_args} yaqwsx/kikit:v0.7 kikit fab jlcpcb --no-assembly output/pcbs/main-routed.kicad_pcb production/pcb/main
 
