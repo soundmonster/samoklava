@@ -1,7 +1,9 @@
 # yamkbd
 ## Yet another Miryoku keyboard
 
-![left](images/left.png) ![right](images/right.png)
+left | right
+-|-
+![left](images/left.png) | ![right](images/right.png)
 
 A 5x3 split keyboard with 3 thumbs. There is nothing interesting about the layout. It's inspired by Corne and Kyria, and
 has the exact number of keys needed to run the [Miryoku](https://github.com/manna-harbour/miryoku) layout.
