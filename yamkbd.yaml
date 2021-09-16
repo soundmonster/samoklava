@@ -182,43 +182,43 @@ outlines:
         anchor:
           - ref: matrix_ring_home
             shift: [-0.5 kx, 0 ky]
-        radius: 1
+        radius: 1.05
       bottom_left:
         type: circle
         anchor:
           - ref: matrix_pinky_bottom
             shift: [0.5 kx, 0]
-        radius: 1
+        radius: 1.05
       top_right:
         type: circle
         anchor:
           - ref: matrix_inner_top
             shift: [-0.5 kx, 0]
-        radius: 1
+        radius: 1.05
       palm:
         type: circle
         anchor:
           - ref: matrix_index_bottom
             shift: [0, -1.06 ky]
-        radius: 1
+        radius: 1.05
       thumb:
         type: circle
         anchor:
           - ref: thumbfan_far_thumb
             shift: [-0.55 kx, 0]
-        radius: 1
+        radius: 1.05
     mounting_holes:
       $extends: outlines.exports.screw_holes
       top_left:
-        radius: 1.6
+        radius: 1.9
       bottom_left:
-        radius: 1.6
+        radius: 1.9
       top_right:
-        radius: 1.6
+        radius: 1.9
       palm:
-        radius: 1.6
+        radius: 1.9
       thumb:
-        radius: 1.6
+        radius: 1.9
     bottom_outline:
       main:
         type: outline
@@ -237,7 +237,6 @@ outlines:
         operation: subtract
       mounting_holes:
         type: outline
-        # TODO use mounting holes of bigger diameter on PCB
         name: screw_holes
         operation: subtract
     pcb:
@@ -249,7 +248,17 @@ outlines:
         name: mounting_holes
         operation: subtract
 pcbs:
-  main:
+  top_plate:
+    outlines:
+      edge:
+        outline: plate
+        layer: Edge.Cuts
+  bottom_plate:
+    outlines:
+      edge:
+        outline: bottom_outline
+        layer: Edge.Cuts
+  board:
     outlines:
       edge:
         outline: pcb

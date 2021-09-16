@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "gen": "ergogen rofl.yaml --debug"
+        "gen": "ergogen yamkbd.yaml"
     },
     "dependencies": {
         "ergogen": "github:mrzealot/ergogen"
