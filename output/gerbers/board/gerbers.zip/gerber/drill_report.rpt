@@ -1,0 +1,29 @@
+Drill report for output/routed_pcbs/board.kicad_pcb
+Created on Sat Sep 18 17:09:25 2021
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'board.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.40mm  0.016"  (17 holes)
+    T2  0.90mm  0.035"  (8 holes)  (with 8 slots)
+    T3  0.99mm  0.039"  (36 holes)
+    T4  1.09mm  0.043"  (48 holes)
+
+    Total plated holes count 109
+
+
+Not plated through holes are merged with plated holes
+    unplated through holes:
+    =============================================================
+    T5  1.50mm  0.059"  (2 holes)
+    T6  1.70mm  0.067"  (36 holes)
+    T7  3.00mm  0.118"  (72 holes)
+    T8  3.43mm  0.135"  (18 holes)
+
+    Total unplated holes count 128
