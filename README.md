@@ -3,7 +3,7 @@
 
 left | right
 -|-
-![left](images/left.png) | ![right](images/right.png)
+![left](output/routed_pcbs/board-front.png) | ![right](output/routed_pcbs/board-back.png)
 
 A 5x3 split keyboard with 3 thumbs. There is nothing unique about the keyboard layout. It's inspired by Corne and Kyria, and
 has the exact number of keys needed for the [Miryoku](https://github.com/manna-harbour/miryoku) layout.
