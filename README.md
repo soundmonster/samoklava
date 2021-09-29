@@ -8,7 +8,8 @@ left | right
 A 5x3 split keyboard with 3 thumbs. There is nothing unique about the keyboard layout. It's inspired by Corne and Kyria, and
 has the exact number of keys needed for the [Miryoku](https://github.com/manna-harbour/miryoku) layout.
 
-The interesting thing about this keyboard is that it's a declarative design
+The interesting thing about this keyboard is that it's a declarative design ("samoklava" can be loosely translated as
+"keyboard that assembles itself" from Russian).
 * Layout is declared using [Ergogen](https://github.com/mrzealot/ergogen/)
 * The build system uses Ergogen to translate YAML to a KiCad PCB and plate files for FR2 fab or laser cutting
   * TODO pull out these files from the `output` folder and move them to some other target
