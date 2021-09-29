@@ -134,7 +134,7 @@
 (net 39 "P8")
 (net 40 "P9")
             
-  (net_class Default "This is the default net class."
+  (net_class Default "This is the default net class"
     (clearance 0.2)
     (trace_width 0.25)
     (via_dia 0.8)
@@ -169,10 +169,7 @@
 (add_net "P4")
 (add_net "home_thumb")
 (add_net "far_thumb")
-(add_net "RAW")
-(add_net "GND")
 (add_net "RST")
-(add_net "VCC")
 (add_net "P14")
 (add_net "P16")
 (add_net "P10")
@@ -182,6 +179,19 @@
 (add_net "P3")
 (add_net "P8")
 (add_net "P9")
+  )
+
+            
+  (net_class Power "This is the power net class"
+    (clearance 0.2)
+    (trace_width 0.5)
+    (via_dia 0.8)
+    (via_drill 0.4)
+    (uvia_dia 0.3)
+    (uvia_drill 0.1)
+    (add_net "RAW")
+(add_net "GND")
+(add_net "VCC")
   )
 
             
