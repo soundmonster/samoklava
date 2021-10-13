@@ -1,5 +1,5 @@
 Drill report for output/routed_pcbs/top_plate.kicad_pcb
-Created on Sat Sep 18 17:09:23 2021
+Created on Wed Oct 13 10:37:05 2021
 
 Copper Layer Stackup:
     =============================================================
@@ -10,17 +10,12 @@ Copper Layer Stackup:
 Drill file 'top_plate.drl' contains
     plated through holes:
     =============================================================
-    T1  0.40mm  0.016"  (8 holes)
-    T2  0.99mm  0.039"  (36 holes)
 
-    Total plated holes count 44
+    Total plated holes count 0
 
 
 Not plated through holes are merged with plated holes
     unplated through holes:
     =============================================================
-    T3  1.70mm  0.067"  (36 holes)
-    T4  3.00mm  0.118"  (72 holes)
-    T5  3.43mm  0.135"  (18 holes)
 
-    Total unplated holes count 126
+    Total unplated holes count 0

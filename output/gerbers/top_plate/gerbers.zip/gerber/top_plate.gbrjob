@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "5.1.5+dfsg1-2build2"
     },
-    "CreationDate":  "2021-09-18T17:09:23+00:00"
+    "CreationDate":  "2021-10-13T10:37:05+00:00"
   },
   "GeneralSpecs":
   {
@@ -31,8 +31,7 @@
       "Layers": "Outer",
       "PadToPad":  0.200,
       "PadToTrack":  0.200,
-      "TrackToTrack":  0.200,
-      "MinLineWidth":  0.250
+      "TrackToTrack":  0.200
     }
   ],
   "FilesAttributes":

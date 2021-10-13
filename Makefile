@@ -7,12 +7,12 @@ container_cmd ?= docker
 container_args ?= -w /board -v $(shell pwd):/board --rm
 
 # outputs from 
-output/pcbs/board.kicad_pcb output/pcbs/top_plate.kicad_pcb output/pcbs/bottom_plate.kicad_pcb &: yamkbd.yaml
+output/pcbs/board.kicad_pcb output/pcbs/top_plate.kicad_pcb output/pcbs/bottom_plate.kicad_pcb &: samoklava.yaml
 	npm run gen
 
 output/pcbs/%.dsn: output/pcbs/%.kicad_pcb
 	# file can not be present or the script will refuse to run
-	rm $@
+	if [ -f "$@" ] ; then rm $@ ; fi
 	${container_cmd} run ${container_args} soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py $< $@
 
 output/routed_pcbs/%.ses: output/pcbs/%.dsn
@@ -22,7 +22,7 @@ output/routed_pcbs/%.ses: output/pcbs/%.dsn
 output/routed_pcbs/%.kicad_pcb: output/routed_pcbs/%.ses output/pcbs/%.kicad_pcb
 	mkdir -p $(shell dirname $@)
 	# file can not be present or the script will refuse to run
-	rm $@
+	if [ -f "$@" ] ; then rm $@ ; fi
 	${container_cmd} run ${container_args} soundmonster/kicad-automation-scripts:latest /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/import_ses.py output/pcbs/$*.kicad_pcb $< --output-file $@
 
 output/routed_pcbs/%-drc/: output/routed_pcbs/%.kicad_pcb

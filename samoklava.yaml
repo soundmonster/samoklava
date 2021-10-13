@@ -225,6 +225,7 @@ outlines:
         name: base_outline
       screw_holes:
         type: outline
+        # TODO use footprints with pad + via reinforcement as mounting holes
         name: screw_holes
         operation: subtract
     plate:
@@ -237,6 +238,7 @@ outlines:
         operation: subtract
       mounting_holes:
         type: outline
+        # TODO use footprints with pad + via reinforcement as mounting holes
         name: screw_holes
         operation: subtract
     pcb:
@@ -245,15 +247,18 @@ outlines:
         name: base_outline
       mounting_holes:
         type: outline
+        # TODO use plated through hole footprints as mounting holes
         name: mounting_holes
         operation: subtract
 pcbs:
   top_plate:
+    include_keys: false
     outlines:
       edge:
         outline: plate
         layer: Edge.Cuts
   bottom_plate:
+    include_keys: false
     outlines:
       edge:
         outline: bottom_outline

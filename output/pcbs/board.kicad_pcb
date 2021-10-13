@@ -134,7 +134,7 @@
 (net 39 "P8")
 (net 40 "P9")
             
-  (net_class Default "This is the default net class"
+  (net_class Default "This is the default net class."
     (clearance 0.2)
     (trace_width 0.25)
     (via_dia 0.8)
@@ -182,7 +182,7 @@
   )
 
             
-  (net_class Power "This is the power net class"
+  (net_class Power "This is the power net class."
     (clearance 0.2)
     (trace_width 0.5)
     (via_dia 0.8)
@@ -1834,57 +1834,57 @@
     
 
         
-      (module ProMicro (layer F.Cu) (tedit 5B307E4C)
-      (at 110 -33.2 270)
+        (module ProMicro (layer F.Cu) (tedit 5B307E4C)
+        (at 110 -33.2 270)
 
+        
+        (fp_text reference "MCU1" (at 0 0) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        (fp_text value "" (at 0 0) (layer B.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
-      (fp_text reference "MCU1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
-      (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
-    
+        
+        (fp_line (start -19.304 -3.81) (end -14.224 -3.81) (layer Dwgs.User) (width 0.15))
+        (fp_line (start -19.304 3.81) (end -19.304 -3.81) (layer Dwgs.User) (width 0.15))
+        (fp_line (start -14.224 3.81) (end -19.304 3.81) (layer Dwgs.User) (width 0.15))
+        (fp_line (start -14.224 -3.81) (end -14.224 3.81) (layer Dwgs.User) (width 0.15))
       
-      (fp_line (start -19.304 -3.81) (end -14.224 -3.81) (layer Dwgs.User) (width 0.15))
-      (fp_line (start -19.304 3.81) (end -19.304 -3.81) (layer Dwgs.User) (width 0.15))
-      (fp_line (start -14.224 3.81) (end -19.304 3.81) (layer Dwgs.User) (width 0.15))
-      (fp_line (start -14.224 -3.81) (end -14.224 3.81) (layer Dwgs.User) (width 0.15))
-    
-      
-      (fp_line (start -17.78 8.89) (end 15.24 8.89) (layer F.SilkS) (width 0.15))
-      (fp_line (start 15.24 8.89) (end 15.24 -8.89) (layer F.SilkS) (width 0.15))
-      (fp_line (start 15.24 -8.89) (end -17.78 -8.89) (layer F.SilkS) (width 0.15))
-      (fp_line (start -17.78 -8.89) (end -17.78 8.89) (layer F.SilkS) (width 0.15))
+        
+        (fp_line (start -17.78 8.89) (end 15.24 8.89) (layer B.SilkS) (width 0.15))
+        (fp_line (start 15.24 8.89) (end 15.24 -8.89) (layer B.SilkS) (width 0.15))
+        (fp_line (start 15.24 -8.89) (end -17.78 -8.89) (layer B.SilkS) (width 0.15))
+        (fp_line (start -17.78 -8.89) (end -17.78 8.89) (layer B.SilkS) (width 0.15))
       
         
         
-        (fp_line (start -15.24 -6.35) (end -12.7 -6.35) (layer F.SilkS) (width 0.15))
-        (fp_line (start -15.24 -6.35) (end -15.24 -8.89) (layer F.SilkS) (width 0.15))
-        (fp_line (start -12.7 -6.35) (end -12.7 -8.89) (layer F.SilkS) (width 0.15))
+        (fp_line (start -15.24 -6.35) (end -12.7 -6.35) (layer B.SilkS) (width 0.15))
+        (fp_line (start -15.24 -6.35) (end -15.24 -8.89) (layer B.SilkS) (width 0.15))
+        (fp_line (start -12.7 -6.35) (end -12.7 -8.89) (layer B.SilkS) (width 0.15))
       
         
-        (fp_text user RAW (at -13.97 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user GND (at -11.43 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user RST (at -8.89 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user VCC (at -6.35 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P21 (at -3.81 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P20 (at -1.27 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P19 (at 1.27 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P18 (at 3.81 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P15 (at 6.35 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P14 (at 8.89 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P16 (at 11.43 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P10 (at 13.97 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
+        (fp_text user RAW (at -13.97 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user GND (at -11.43 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user RST (at -8.89 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user VCC (at -6.35 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P21 (at -3.81 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P20 (at -1.27 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P19 (at 1.27 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P18 (at 3.81 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P15 (at 6.35 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P14 (at 8.89 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P16 (at 11.43 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P10 (at 13.97 -4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
       
-        (fp_text user P01 (at -13.97 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P00 (at -11.43 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user GND (at -8.89 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user GND (at -6.35 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P02 (at -3.81 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P03 (at -1.27 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P04 (at 1.27 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P05 (at 3.81 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P06 (at 6.35 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P07 (at 8.89 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P08 (at 11.43 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P09 (at 13.97 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
+        (fp_text user P01 (at -13.97 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P00 (at -11.43 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user GND (at -8.89 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user GND (at -6.35 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P02 (at -3.81 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P03 (at -1.27 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P04 (at 1.27 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P05 (at 3.81 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P06 (at 6.35 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P07 (at 8.89 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P08 (at 11.43 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+        (fp_text user P09 (at 13.97 4.8 360) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
       
         
         (pad 1 thru_hole rect (at -13.97 -7.62 270) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 28 "RAW"))
@@ -1916,24 +1916,24 @@
         
 
         
-      (module ProMicro (layer F.Cu) (tedit 5B307E4C)
-      (at 112.5 -31.950000000000003 270)
+        (module ProMicro (layer F.Cu) (tedit 5B307E4C)
+        (at 112.5 -31.950000000000003 270)
 
+        
+        (fp_text reference "MCU2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
       
-      (fp_text reference "MCU2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
-      (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
-    
+        
+        (fp_line (start -19.304 -3.81) (end -14.224 -3.81) (layer Dwgs.User) (width 0.15))
+        (fp_line (start -19.304 3.81) (end -19.304 -3.81) (layer Dwgs.User) (width 0.15))
+        (fp_line (start -14.224 3.81) (end -19.304 3.81) (layer Dwgs.User) (width 0.15))
+        (fp_line (start -14.224 -3.81) (end -14.224 3.81) (layer Dwgs.User) (width 0.15))
       
-      (fp_line (start -19.304 -3.81) (end -14.224 -3.81) (layer Dwgs.User) (width 0.15))
-      (fp_line (start -19.304 3.81) (end -19.304 -3.81) (layer Dwgs.User) (width 0.15))
-      (fp_line (start -14.224 3.81) (end -19.304 3.81) (layer Dwgs.User) (width 0.15))
-      (fp_line (start -14.224 -3.81) (end -14.224 3.81) (layer Dwgs.User) (width 0.15))
-    
-      
-      (fp_line (start -17.78 8.89) (end 15.24 8.89) (layer F.SilkS) (width 0.15))
-      (fp_line (start 15.24 8.89) (end 15.24 -8.89) (layer F.SilkS) (width 0.15))
-      (fp_line (start 15.24 -8.89) (end -17.78 -8.89) (layer F.SilkS) (width 0.15))
-      (fp_line (start -17.78 -8.89) (end -17.78 8.89) (layer F.SilkS) (width 0.15))
+        
+        (fp_line (start -17.78 8.89) (end 15.24 8.89) (layer F.SilkS) (width 0.15))
+        (fp_line (start 15.24 8.89) (end 15.24 -8.89) (layer F.SilkS) (width 0.15))
+        (fp_line (start 15.24 -8.89) (end -17.78 -8.89) (layer F.SilkS) (width 0.15))
+        (fp_line (start -17.78 -8.89) (end -17.78 8.89) (layer F.SilkS) (width 0.15))
       
         
         
@@ -1942,31 +1942,31 @@
         (fp_line (start -12.7 6.35) (end -12.7 8.89) (layer F.SilkS) (width 0.15))
       
         
-        (fp_text user RAW (at -13.97 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user GND (at -11.43 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user RST (at -8.89 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user VCC (at -6.35 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P21 (at -3.81 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P20 (at -1.27 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P19 (at 1.27 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P18 (at 3.81 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P15 (at 6.35 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P14 (at 8.89 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P16 (at 11.43 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P10 (at 13.97 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
+        (fp_text user RAW (at -13.97 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user GND (at -11.43 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user RST (at -8.89 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user VCC (at -6.35 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P21 (at -3.81 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P20 (at -1.27 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P19 (at 1.27 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P18 (at 3.81 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P15 (at 6.35 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P14 (at 8.89 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P16 (at 11.43 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P10 (at 13.97 4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
       
-        (fp_text user P01 (at -13.97 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P00 (at -11.43 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user GND (at -8.89 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user GND (at -6.35 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P02 (at -3.81 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P03 (at -1.27 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P04 (at 1.27 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P05 (at 3.81 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P06 (at 6.35 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P07 (at 8.89 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P08 (at 11.43 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
-        (fp_text user P09 (at 13.97 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15))))
+        (fp_text user P01 (at -13.97 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P00 (at -11.43 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user GND (at -8.89 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user GND (at -6.35 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P02 (at -3.81 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P03 (at -1.27 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P04 (at 1.27 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P05 (at 3.81 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P06 (at 6.35 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P07 (at 8.89 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P08 (at 11.43 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+        (fp_text user P09 (at 13.97 -4.8 360) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
       
         
         (pad 1 thru_hole rect (at -13.97 7.62 270) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 28 "RAW"))
