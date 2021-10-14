@@ -210,15 +210,15 @@ outlines:
     mounting_holes:
       $extends: outlines.exports.screw_holes
       top_left:
-        radius: 1.9
+        radius: 2.05
       bottom_left:
-        radius: 1.9
+        radius: 2.05
       top_right:
-        radius: 1.9
+        radius: 2.05
       palm:
-        radius: 1.9
+        radius: 2.05
       thumb:
-        radius: 1.9
+        radius: 2.05
     bottom_outline:
       main:
         type: outline
@@ -293,7 +293,7 @@ pcbs:
         anchor:
           ref:
             - matrix_inner_bottom
-          shift: [30, -8]
+          shift: [32, -8]
           rotate: 270
         params:
           reverse: true
