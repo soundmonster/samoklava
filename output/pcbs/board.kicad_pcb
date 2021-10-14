@@ -2000,7 +2000,7 @@
         
       (module TRRS-PJ-320A-dual (layer F.Cu) (tedit 5970F8E5)
 
-      (at 120 -2.1999999999999993 270)   
+      (at 122 -2.1999999999999993 270)   
 
       
       (fp_text reference REF** (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
@@ -2059,11 +2059,11 @@
 (gr_line (start 122 20.20873404242809) (end 122 -49.85000000000001) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_arc (start 120 -49.85000000000001) (end 122 -49.85000000000001) (angle -90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 120 -51.85000000000001) (end 99.9943671 -51.85) (angle 90) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 27 -28.9) (end 28.9 -28.9) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 27 0) (end 28.9 0) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 81 -44.2) (end 82.9 -44.2) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 72 6.119999999999999) (end 73.9 6.119999999999999) (layer Edge.Cuts) (width 0.15))
-(gr_circle (center 110.3491337 22.311939099999996) (end 112.2491337 22.311939099999996) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 27 -28.9) (end 29.05 -28.9) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 27 0) (end 29.05 0) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 81 -44.2) (end 83.05 -44.2) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 72 6.119999999999999) (end 74.05 6.119999999999999) (layer Edge.Cuts) (width 0.15))
+(gr_circle (center 110.3491337 22.311939099999996) (end 112.3991337 22.311939099999996) (layer Edge.Cuts) (width 0.15))
             
 )
 
