@@ -36,34 +36,34 @@ points:
           stagger: 0 ky
           spread: kx
           key:
-            column_net: P21
+            column_net: P20
         ring:
           stagger: 0.7 ky
           spread: kx
           key:
-            column_net: P20
+            column_net: P19
         middle:
           stagger: 0.2 ky
           spread: kx
           key:
-            column_net: P19
+            column_net: P18
         index:
           stagger: -0.2 ky
           spread: kx
           key:
-            column_net: P18
+            column_net: P15
         inner:
           stagger: -0.1 ky
           spread: kx
           key:
-            column_net: P15
+            column_net: P14
       rows:
-        bottom:
-          row_net: P7
-        home:
-          row_net: P6
         top:
+          row_net: P4
+        home:
           row_net: P5
+        bottom:
+          row_net: P6
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -74,22 +74,22 @@ points:
           rotate: -15
           origin: [-0.5 kx, -0.5 ky]
           key:
-            column_net: P19
+            column_net: P18
         home:
           spread: kx
           rotate: -15
           origin: [-0.5 kx, -0.5 ky]
           key:
-            column_net: P18
+            column_net: P15
         far:
           spread: kx
           rotate: -15
           origin: [-0.5 kx, -0.5 ky]
           key:
-            column_net: P15
+            column_net: P14
       rows:
         thumb:
-          row_net: P4
+          row_net: P7
 outlines:
   exports:
     raw:
@@ -289,6 +289,7 @@ pcbs:
           shift: [22.5, -12.25]
           rotate: 270
       trrs:
+        # TODO tighten hole diameter, see crkbd
         type: trrs
         anchor:
           ref:
