@@ -91,6 +91,7 @@ points:
         thumb:
           row_net: P7
 outlines:
+  # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
   exports:
     raw:
       - type: keys
