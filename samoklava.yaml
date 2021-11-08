@@ -290,7 +290,6 @@ pcbs:
           shift: [22.5, -12.25]
           rotate: 270
       trrs:
-        # TODO tighten hole diameter, see crkbd
         type: trrs
         anchor:
           ref:
