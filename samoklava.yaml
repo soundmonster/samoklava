@@ -321,3 +321,23 @@ pcbs:
           B: VCC
           C: GND
           D: P0
+      info_l:
+        type: text
+        anchor:
+          ref:
+            - matrix_pinky_bottom
+          shift: [0.75 kx, 0]
+        params:
+          text: "samoklava v0.1\\nby soundmonster"
+          justify: left
+      info_r:
+        type: text
+        anchor:
+          ref:
+            - matrix_pinky_bottom
+          shift: [0.75 kx, 0]
+        params:
+          layer: B.SilkS
+          text: "samoklava v0.1\\nby soundmonster"
+          justify: right mirror
+

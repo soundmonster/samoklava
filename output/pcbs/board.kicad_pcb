@@ -2003,7 +2003,7 @@
       (at 122 -0.1999999999999993 270)   
 
       
-      (fp_text reference REF** (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
+      (fp_text reference "TRRS1" (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value TRRS-PJ-320A-dual (at 0 -5.6) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
 
       
@@ -2033,7 +2033,7 @@
       (at 122 -2.1999999999999993 270)   
 
       
-      (fp_text reference REF** (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
+      (fp_text reference "TRRS2" (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
       (fp_text value TRRS-PJ-320A-dual (at 0 -5.6) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
 
       
@@ -2055,6 +2055,16 @@
         (pad 3 thru_hole oval (at -4.6 6.2 270) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) (net 29 "GND"))
         (pad 4 thru_hole oval (at -4.6 3.2 270) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) (net 36 "P0"))
       )
+        
+
+            (gr_text "samoklava v0.1\nby soundmonster" (at 31.5 0 0) (layer F.SilkS)
+                (effects (font (size 1 1) (thickness 0.15)) (justify left))
+            )
+        
+
+            (gr_text "samoklava v0.1\nby soundmonster" (at 31.5 0 0) (layer B.SilkS)
+                (effects (font (size 1 1) (thickness 0.15)) (justify right mirror))
+            )
         
             (gr_line (start 10 9.5) (end 26 9.5) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 8 7.5) (end 8 -41.5) (angle 90) (layer Edge.Cuts) (width 0.15))
