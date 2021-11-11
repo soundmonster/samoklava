@@ -1,0 +1,21 @@
+Drill report for output/routed_pcbs/top_plate.kicad_pcb
+Created on Thu Nov 11 17:12:56 2021
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'top_plate.drl' contains
+    plated through holes:
+    =============================================================
+
+    Total plated holes count 0
+
+
+Not plated through holes are merged with plated holes
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0
