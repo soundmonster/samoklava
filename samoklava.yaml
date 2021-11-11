@@ -253,12 +253,14 @@ outlines:
         operation: subtract
 pcbs:
   top_plate:
+    # include JLCJLCJLCJLC text somewhere
     include_keys: false
     outlines:
       edge:
         outline: plate
         layer: Edge.Cuts
   bottom_plate:
+    # include JLCJLCJLCJLC text somewhere
     include_keys: false
     outlines:
       edge:
@@ -275,6 +277,7 @@ pcbs:
         type: promicro
         params:
           orientation: up
+          batteryPins: true
         anchor:
           ref:
             - matrix_inner_top
@@ -284,6 +287,7 @@ pcbs:
         type: promicro
         params:
           orientation: down
+          batteryPins: true
         anchor:
           ref:
             - matrix_inner_top
