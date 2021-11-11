@@ -668,26 +668,19 @@
     (net P9
       (pins MCU1-24 MCU2-24)
     )
-    (net B+
-      (pins MCU1-25 MCU2-25)
+    (net Bplus
+      (pins MCU1-25 MCU2-25 J1-2 J2-2 T1-2 T2-2)
     )
-    (net "B-"
-      (pins MCU1-25@1 MCU2-25@1)
+    (net Bminus
+      (pins MCU1-25@1 MCU2-25@1 PAD2-1 PAD2-1@1)
     )
     (net Braw
       (pins PAD1-1 PAD1-1@1 J1-1 J2-1 T1-1 T2-1)
     )
-    (net Bminus
-      (pins PAD2-1 PAD2-1@1)
-    )
-    (net Bplus
-      (pins J1-2 J2-2 T1-2 T2-2)
-    )
-    (class kicad_default "" B+ "B-" Bminus Bplus Braw P0 P1 P10 P14 P15 P16
-      P18 P19 P2 P20 P21 P3 P4 P5 P6 P7 P8 P9 RST far_thumb home_thumb index_bottom
-      index_home index_top inner_bottom inner_home inner_top middle_bottom
-      middle_home middle_top near_thumb pinky_bottom pinky_home pinky_top
-      ring_bottom ring_home ring_top
+    (class kicad_default "" P0 P1 P10 P14 P15 P16 P18 P19 P2 P20 P21 P3 P4
+      P5 P6 P7 P8 P9 RST far_thumb home_thumb index_bottom index_home index_top
+      inner_bottom inner_home inner_top middle_bottom middle_home middle_top
+      near_thumb pinky_bottom pinky_home pinky_top ring_bottom ring_home ring_top
       (circuit
         (use_via Via[0-1]_800:400_um)
       )
@@ -696,7 +689,7 @@
         (clearance 200.1)
       )
     )
-    (class Power GND RAW VCC
+    (class Power Bminus Bplus Braw GND RAW VCC
       (circuit
         (use_via Via[0-1]_800:400_um)
       )
