@@ -289,12 +289,42 @@ pcbs:
             - matrix_inner_top
           shift: [22.5, -12.25]
           rotate: 270
+      pad_plus:
+        type: pad
+        anchor:
+          ref:
+            - matrix_inner_top
+          shift: [23, -18]
+          rotate: 0
+        params:
+          front: true
+          back: true
+          width: 1.5
+          height: 1.5
+          text: "B+"
+        nets:
+          net: Braw
+      pad_minus:
+        type: pad
+        anchor:
+          ref:
+            - matrix_inner_top
+          shift: [23, -15]
+          rotate: 0
+        params:
+          front: true
+          back: true
+          width: 1.5
+          height: 1.5
+          text: "B-"
+        nets:
+          net: Bminus
       trrs_l:
         type: trrs
         anchor:
           ref:
             - matrix_inner_bottom
-          shift: [32, -10]
+          shift: [32, -15]
           rotate: 270
         params:
           reverse: false
@@ -310,7 +340,7 @@ pcbs:
         anchor:
           ref:
             - matrix_inner_bottom
-          shift: [32, -8]
+          shift: [32, -13]
           rotate: 270
         params:
           reverse: true
@@ -321,6 +351,78 @@ pcbs:
           B: VCC
           C: GND
           D: P0
+      jumper_l:
+        type: jumper
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [23.5, 0]
+          rotate: 270
+        params:
+          side: B
+        nets:
+          from: Braw
+          to: Bplus
+      jumper_r:
+        type: jumper
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [23.5, 0]
+          rotate: 270
+        params:
+          side: F
+        nets:
+          from: Braw
+          to: Bplus
+      slider_l:
+        type: slider
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [30, 0]
+          rotate: 270
+        params:
+          side: F
+        nets:
+          from: Braw
+          to: Bplus
+      slider_r:
+        type: slider
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [30, 0]
+          rotate: 270
+        params:
+          side: B
+        nets:
+          from: Braw
+          to: Bplus
+      reset_l:
+        type: button
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [17, 0]
+          rotate: 270
+        params:
+          side: F
+        nets:
+          from: GND
+          to: RST
+      reset_r:
+        type: button
+        anchor:
+          ref:
+            - matrix_inner_bottom
+          shift: [17, 0]
+          rotate: 270
+        params:
+          side: B
+        nets:
+          from: GND
+          to: RST
       info_l:
         type: text
         anchor:

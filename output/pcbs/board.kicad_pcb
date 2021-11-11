@@ -133,6 +133,11 @@
 (net 38 "P3")
 (net 39 "P8")
 (net 40 "P9")
+(net 41 "B+")
+(net 42 "B-")
+(net 43 "Braw")
+(net 44 "Bminus")
+(net 45 "Bplus")
             
   (net_class Default "This is the default net class."
     (clearance 0.2)
@@ -179,6 +184,11 @@
 (add_net "P3")
 (add_net "P8")
 (add_net "P9")
+(add_net "B+")
+(add_net "B-")
+(add_net "Braw")
+(add_net "Bminus")
+(add_net "Bplus")
   )
 
             
@@ -1912,7 +1922,8 @@
         (pad 22 thru_hole circle (at 8.89 7.62 0) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 25 "P7"))
         (pad 23 thru_hole circle (at 11.43 7.62 0) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 39 "P8"))
         (pad 24 thru_hole circle (at 13.97 7.62 0) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 40 "P9"))
-      )
+      
+        )
         
 
         
@@ -1994,13 +2005,52 @@
         (pad 22 thru_hole circle (at 8.89 -7.62 0) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 25 "P7"))
         (pad 23 thru_hole circle (at 11.43 -7.62 0) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 39 "P8"))
         (pad 24 thru_hole circle (at 13.97 -7.62 0) (size 1.7526 1.7526) (drill 1.0922) (layers *.Cu *.SilkS *.Mask) (net 40 "P9"))
-      )
+      
+        )
+        
+
+    
+        (module SMDPad (layer F.Cu) (tedit 5B24D78E)
+
+            (at 113 -26.200000000000003 0)
+
+            
+            (fp_text reference "PAD1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            
+            
+            (pad 1 smd rect (at 0 0 0) (size 1.5 1.5) (layers F.Cu F.Paste F.Mask) (net 43 "Braw"))
+(fp_text user B+ (at -2.25 0 0) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+            (pad 1 smd rect (at 0 0 0) (size 1.5 1.5) (layers B.Cu B.Paste B.Mask) (net 43 "Braw"))
+(fp_text user B+ (at -2.25 0 0) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+            
+        )
+    
+        
+
+    
+        (module SMDPad (layer F.Cu) (tedit 5B24D78E)
+
+            (at 113 -29.200000000000003 0)
+
+            
+            (fp_text reference "PAD2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            
+            
+            (pad 1 smd rect (at 0 0 0) (size 1.5 1.5) (layers F.Cu F.Paste F.Mask) (net 44 "Bminus"))
+(fp_text user B- (at -2.25 0 0) (layer F.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) ))
+            (pad 1 smd rect (at 0 0 0) (size 1.5 1.5) (layers B.Cu B.Paste B.Mask) (net 44 "Bminus"))
+(fp_text user B- (at -2.25 0 0) (layer B.SilkS) (effects (font (size 0.8 0.8) (thickness 0.15)) (justify mirror)))
+            
+        )
+    
         
 
           
       (module TRRS-PJ-320A-dual (layer F.Cu) (tedit 5970F8E5)
 
-      (at 122 -0.1999999999999993 270)   
+      (at 122 4.800000000000001 270)   
 
       
       (fp_text reference "TRRS1" (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
@@ -2030,7 +2080,7 @@
           
       (module TRRS-PJ-320A-dual (layer F.Cu) (tedit 5970F8E5)
 
-      (at 122 -2.1999999999999993 270)   
+      (at 122 2.8000000000000007 270)   
 
       
       (fp_text reference "TRRS2" (at 0 14.2) (layer Dwgs.User) (effects (font (size 1 1) (thickness 0.15))))
@@ -2056,6 +2106,174 @@
         (pad 4 thru_hole oval (at -4.6 3.2 270) (size 1.6 2.2) (drill oval 0.9 1.5) (layers *.Cu *.Mask) (net 36 "P0"))
       )
         
+
+        (module lib:Jumper (layer F.Cu) (tedit 5E1ADAC2)
+        (at 113.5 -10.2 270) 
+
+                
+        (fp_text reference "J1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        (fp_text value Jumper (at 0 -7.3) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
+
+        
+        (pad 1 smd rect (at -0.50038 0 270) (size 0.635 1.143) (layers B.Cu B.Paste B.Mask)
+        (clearance 0.1905) (net 43 "Braw"))
+        (pad 2 smd rect (at 0.50038 0 270) (size 0.635 1.143) (layers B.Cu B.Paste B.Mask)
+        (clearance 0.1905) (net 45 "Bplus")))
+    
+
+        (module lib:Jumper (layer F.Cu) (tedit 5E1ADAC2)
+        (at 113.5 -10.2 270) 
+
+                
+        (fp_text reference "J2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        (fp_text value Jumper (at 0 -7.3) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
+
+        
+        (pad 1 smd rect (at -0.50038 0 270) (size 0.635 1.143) (layers F.Cu F.Paste F.Mask)
+        (clearance 0.1905) (net 43 "Braw"))
+        (pad 2 smd rect (at 0.50038 0 270) (size 0.635 1.143) (layers F.Cu F.Paste F.Mask)
+        (clearance 0.1905) (net 45 "Bplus")))
+    
+
+        
+        (module E73:SPDT_C128955 (layer F.Cu) (tstamp 5BF2CC3C)
+
+            (at 120 -10.2 270)
+
+            
+            (fp_text reference "T1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            
+            
+            (fp_line (start 1.95 -1.35) (end -1.95 -1.35) (layer F.SilkS) (width 0.15))
+            (fp_line (start 0 -1.35) (end -3.3 -1.35) (layer F.SilkS) (width 0.15))
+            (fp_line (start -3.3 -1.35) (end -3.3 1.5) (layer F.SilkS) (width 0.15))
+            (fp_line (start -3.3 1.5) (end 3.3 1.5) (layer F.SilkS) (width 0.15))
+            (fp_line (start 3.3 1.5) (end 3.3 -1.35) (layer F.SilkS) (width 0.15))
+            (fp_line (start 0 -1.35) (end 3.3 -1.35) (layer F.SilkS) (width 0.15))
+            
+            
+            (fp_line (start -1.95 -3.85) (end 1.95 -3.85) (layer Dwgs.User) (width 0.15))
+            (fp_line (start 1.95 -3.85) (end 1.95 -1.35) (layer Dwgs.User) (width 0.15))
+            (fp_line (start -1.95 -1.35) (end -1.95 -3.85) (layer Dwgs.User) (width 0.15))
+            
+            
+            (pad "" np_thru_hole circle (at 1.5 0) (size 1 1) (drill 0.9) (layers *.Cu *.Mask))
+            (pad "" np_thru_hole circle (at -1.5 0) (size 1 1) (drill 0.9) (layers *.Cu *.Mask))
+
+            
+            (pad 1 smd rect (at 2.25 2.075 270) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask) (net 43 "Braw"))
+            (pad 2 smd rect (at -0.75 2.075 270) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask) (net 45 "Bplus"))
+            (pad 3 smd rect (at -2.25 2.075 270) (size 0.9 1.25) (layers F.Cu F.Paste F.Mask))
+            
+            
+            (pad "" smd rect (at 3.7 -1.1 270) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at 3.7 1.1 270) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at -3.7 1.1 270) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+            (pad "" smd rect (at -3.7 -1.1 270) (size 0.9 0.9) (layers F.Cu F.Paste F.Mask))
+        )
+        
+        
+
+        
+        (module E73:SPDT_C128955 (layer F.Cu) (tstamp 5BF2CC3C)
+
+            (at 120 -10.2 270)
+
+            
+            (fp_text reference "T2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+            
+            
+            (fp_line (start 1.95 -1.35) (end -1.95 -1.35) (layer B.SilkS) (width 0.15))
+            (fp_line (start 0 -1.35) (end -3.3 -1.35) (layer B.SilkS) (width 0.15))
+            (fp_line (start -3.3 -1.35) (end -3.3 1.5) (layer B.SilkS) (width 0.15))
+            (fp_line (start -3.3 1.5) (end 3.3 1.5) (layer B.SilkS) (width 0.15))
+            (fp_line (start 3.3 1.5) (end 3.3 -1.35) (layer B.SilkS) (width 0.15))
+            (fp_line (start 0 -1.35) (end 3.3 -1.35) (layer B.SilkS) (width 0.15))
+            
+            
+            (fp_line (start -1.95 -3.85) (end 1.95 -3.85) (layer Dwgs.User) (width 0.15))
+            (fp_line (start 1.95 -3.85) (end 1.95 -1.35) (layer Dwgs.User) (width 0.15))
+            (fp_line (start -1.95 -1.35) (end -1.95 -3.85) (layer Dwgs.User) (width 0.15))
+            
+            
+            (pad "" np_thru_hole circle (at 1.5 0) (size 1 1) (drill 0.9) (layers *.Cu *.Mask))
+            (pad "" np_thru_hole circle (at -1.5 0) (size 1 1) (drill 0.9) (layers *.Cu *.Mask))
+
+            
+            (pad 1 smd rect (at -2.25 2.075 270) (size 0.9 1.25) (layers B.Cu B.Paste B.Mask) (net 43 "Braw"))
+            (pad 2 smd rect (at 0.75 2.075 270) (size 0.9 1.25) (layers B.Cu B.Paste B.Mask) (net 45 "Bplus"))
+            (pad 3 smd rect (at 2.25 2.075 270) (size 0.9 1.25) (layers B.Cu B.Paste B.Mask))
+            
+            
+            (pad "" smd rect (at 3.7 -1.1 270) (size 0.9 0.9) (layers B.Cu B.Paste B.Mask))
+            (pad "" smd rect (at 3.7 1.1 270) (size 0.9 0.9) (layers B.Cu B.Paste B.Mask))
+            (pad "" smd rect (at -3.7 1.1 270) (size 0.9 0.9) (layers B.Cu B.Paste B.Mask))
+            (pad "" smd rect (at -3.7 -1.1 270) (size 0.9 0.9) (layers B.Cu B.Paste B.Mask))
+        )
+        
+        
+
+    
+    (module E73:SW_TACT_ALPS_SKQGABE010 (layer F.Cu) (tstamp 5BF2CC94)
+
+        (descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/product-catalog/tact/product-lines/tl3342-series-low-profile-smt-tact-switch")
+        (tags "SPST Tactile Switch")
+
+        (at 107 -10.2 270)
+        
+        (fp_text reference "B1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        
+        
+        (fp_line (start 2.75 1.25) (end 1.25 2.75) (layer F.SilkS) (width 0.15))
+        (fp_line (start 2.75 -1.25) (end 1.25 -2.75) (layer F.SilkS) (width 0.15))
+        (fp_line (start 2.75 -1.25) (end 2.75 1.25) (layer F.SilkS) (width 0.15))
+        (fp_line (start -1.25 2.75) (end 1.25 2.75) (layer F.SilkS) (width 0.15))
+        (fp_line (start -1.25 -2.75) (end 1.25 -2.75) (layer F.SilkS) (width 0.15))
+        (fp_line (start -2.75 1.25) (end -1.25 2.75) (layer F.SilkS) (width 0.15))
+        (fp_line (start -2.75 -1.25) (end -1.25 -2.75) (layer F.SilkS) (width 0.15))
+        (fp_line (start -2.75 -1.25) (end -2.75 1.25) (layer F.SilkS) (width 0.15))
+        
+        
+        (pad 1 smd rect (at -3.1 -1.85 270) (size 1.8 1.1) (layers F.Cu F.Paste F.Mask) (net 29 "GND"))
+        (pad 1 smd rect (at 3.1 -1.85 270) (size 1.8 1.1) (layers F.Cu F.Paste F.Mask) (net 29 "GND"))
+        (pad 2 smd rect (at -3.1 1.85 270) (size 1.8 1.1) (layers F.Cu F.Paste F.Mask) (net 30 "RST"))
+        (pad 2 smd rect (at 3.1 1.85 270) (size 1.8 1.1) (layers F.Cu F.Paste F.Mask) (net 30 "RST"))
+    )
+    
+    
+
+    
+    (module E73:SW_TACT_ALPS_SKQGABE010 (layer F.Cu) (tstamp 5BF2CC94)
+
+        (descr "Low-profile SMD Tactile Switch, https://www.e-switch.com/product-catalog/tact/product-lines/tl3342-series-low-profile-smt-tact-switch")
+        (tags "SPST Tactile Switch")
+
+        (at 107 -10.2 270)
+        
+        (fp_text reference "B2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+        
+        
+        (fp_line (start 2.75 1.25) (end 1.25 2.75) (layer B.SilkS) (width 0.15))
+        (fp_line (start 2.75 -1.25) (end 1.25 -2.75) (layer B.SilkS) (width 0.15))
+        (fp_line (start 2.75 -1.25) (end 2.75 1.25) (layer B.SilkS) (width 0.15))
+        (fp_line (start -1.25 2.75) (end 1.25 2.75) (layer B.SilkS) (width 0.15))
+        (fp_line (start -1.25 -2.75) (end 1.25 -2.75) (layer B.SilkS) (width 0.15))
+        (fp_line (start -2.75 1.25) (end -1.25 2.75) (layer B.SilkS) (width 0.15))
+        (fp_line (start -2.75 -1.25) (end -1.25 -2.75) (layer B.SilkS) (width 0.15))
+        (fp_line (start -2.75 -1.25) (end -2.75 1.25) (layer B.SilkS) (width 0.15))
+        
+        
+        (pad 1 smd rect (at -3.1 -1.85 270) (size 1.8 1.1) (layers B.Cu B.Paste B.Mask) (net 29 "GND"))
+        (pad 1 smd rect (at 3.1 -1.85 270) (size 1.8 1.1) (layers B.Cu B.Paste B.Mask) (net 29 "GND"))
+        (pad 2 smd rect (at -3.1 1.85 270) (size 1.8 1.1) (layers B.Cu B.Paste B.Mask) (net 30 "RST"))
+        (pad 2 smd rect (at 3.1 1.85 270) (size 1.8 1.1) (layers B.Cu B.Paste B.Mask) (net 30 "RST"))
+    )
+    
+    
 
             (gr_text "samoklava v0.1\nby soundmonster" (at 31.5 0 0) (layer F.SilkS)
                 (effects (font (size 1 1) (thickness 0.15)) (justify left))
