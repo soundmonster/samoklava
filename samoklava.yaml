@@ -403,7 +403,7 @@ pcbs:
         nets:
           from: Braw
           to: Bplus
-      reset_l:
+      reset:
         type: button
         anchor:
           ref:
@@ -411,19 +411,7 @@ pcbs:
           shift: [17, 0]
           rotate: 270
         params:
-          side: F
-        nets:
-          from: GND
-          to: RST
-      reset_r:
-        type: button
-        anchor:
-          ref:
-            - matrix_inner_bottom
-          shift: [17, 0]
-          rotate: 270
-        params:
-          side: B
+          variant: 2_pin_th
         nets:
           from: GND
           to: RST
