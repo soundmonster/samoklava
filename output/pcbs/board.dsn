@@ -149,11 +149,8 @@
     (component E73:SPDT_C128955::1
       (place T2 120000 10200 front 270)
     )
-    (component E73:SW_TACT_ALPS_SKQGABE010
+    (component kbd:ResetSW
       (place B1 107000 10200 front 270)
-    )
-    (component E73:SW_TACT_ALPS_SKQGABE010::1
-      (place B2 107000 10200 front 270)
     )
   )
   (library
@@ -397,33 +394,21 @@
       (pin Rect[B]Pad_900x900_um @5 -3700 -1100)
       (pin Rect[B]Pad_900x900_um @6 -3700 1100)
     )
-    (image E73:SW_TACT_ALPS_SKQGABE010
-      (outline (path signal 150  2750 -1250  1250 -2750))
-      (outline (path signal 150  2750 1250  1250 2750))
-      (outline (path signal 150  2750 1250  2750 -1250))
-      (outline (path signal 150  -1250 -2750  1250 -2750))
-      (outline (path signal 150  -1250 2750  1250 2750))
-      (outline (path signal 150  -2750 -1250  -1250 -2750))
-      (outline (path signal 150  -2750 1250  -1250 2750))
-      (outline (path signal 150  -2750 1250  -2750 -1250))
-      (pin Rect[T]Pad_1800x1100_um 1 -3100 1850)
-      (pin Rect[T]Pad_1800x1100_um 1@1 3100 1850)
-      (pin Rect[T]Pad_1800x1100_um 2 -3100 -1850)
-      (pin Rect[T]Pad_1800x1100_um 2@1 3100 -1850)
-    )
-    (image E73:SW_TACT_ALPS_SKQGABE010::1
-      (outline (path signal 150  2750 -1250  1250 -2750))
-      (outline (path signal 150  2750 1250  1250 2750))
-      (outline (path signal 150  2750 1250  2750 -1250))
-      (outline (path signal 150  -1250 -2750  1250 -2750))
-      (outline (path signal 150  -1250 2750  1250 2750))
-      (outline (path signal 150  -2750 -1250  -1250 -2750))
-      (outline (path signal 150  -2750 1250  -1250 2750))
-      (outline (path signal 150  -2750 1250  -2750 -1250))
-      (pin Rect[B]Pad_1800x1100_um 1 -3100 1850)
-      (pin Rect[B]Pad_1800x1100_um 1@1 3100 1850)
-      (pin Rect[B]Pad_1800x1100_um 2 -3100 -1850)
-      (pin Rect[B]Pad_1800x1100_um 2@1 3100 -1850)
+    (image kbd:ResetSW
+      (outline (path signal 150  3000 -1500  3000 -1750))
+      (outline (path signal 150  3000 -1750  -3000 -1750))
+      (outline (path signal 150  -3000 -1750  -3000 -1500))
+      (outline (path signal 150  -3000 1500  -3000 1750))
+      (outline (path signal 150  -3000 1750  3000 1750))
+      (outline (path signal 150  3000 1750  3000 1500))
+      (outline (path signal 150  -3000 -1750  3000 -1750))
+      (outline (path signal 150  3000 -1750  3000 -1500))
+      (outline (path signal 150  -3000 -1750  -3000 -1500))
+      (outline (path signal 150  -3000 1750  -3000 1500))
+      (outline (path signal 150  -3000 1750  3000 1750))
+      (outline (path signal 150  3000 1750  3000 1500))
+      (pin Round[A]Pad_2000_um 2 -3250 0)
+      (pin Round[A]Pad_2000_um 1 3250 0)
     )
     (padstack Round[A]Pad_1000_um
       (shape (circle F.Cu 1000))
@@ -438,6 +423,11 @@
     (padstack Round[A]Pad_1905_um
       (shape (circle F.Cu 1905))
       (shape (circle B.Cu 1905))
+      (attach off)
+    )
+    (padstack Round[A]Pad_2000_um
+      (shape (circle F.Cu 2000))
+      (shape (circle B.Cu 2000))
       (attach off)
     )
     (padstack Oval[A]Pad_1600x2200_um
@@ -494,10 +484,6 @@
       (shape (rect B.Cu -750 -750 750 750))
       (attach off)
     )
-    (padstack Rect[B]Pad_1800x1100_um
-      (shape (rect B.Cu -900 -550 900 550))
-      (attach off)
-    )
     (padstack Rect[T]Pad_2600x2600_um
       (shape (rect F.Cu -1300 -1300 1300 1300))
       (attach off)
@@ -530,10 +516,6 @@
     (padstack Rect[A]Pad_1778x1778_um
       (shape (rect F.Cu -889 -889 889 889))
       (shape (rect B.Cu -889 -889 889 889))
-      (attach off)
-    )
-    (padstack Rect[T]Pad_1800x1100_um
-      (shape (rect F.Cu -900 -550 900 550))
       (attach off)
     )
     (padstack "Via[0-1]_800:400_um"
@@ -632,11 +614,10 @@
       (pins MCU1-1 MCU2-1)
     )
     (net GND
-      (pins MCU1-2 MCU1-15 MCU1-16 MCU2-2 MCU2-15 MCU2-16 TRRS1-3 TRRS2-3 B1-1 B1-1@1
-        B2-1 B2-1@1)
+      (pins MCU1-2 MCU1-15 MCU1-16 MCU2-2 MCU2-15 MCU2-16 TRRS1-3 TRRS2-3 B1-2)
     )
     (net RST
-      (pins MCU1-3 MCU2-3 B1-2 B1-2@1 B2-2 B2-2@1)
+      (pins MCU1-3 MCU2-3 B1-1)
     )
     (net VCC
       (pins MCU1-4 MCU2-4 TRRS1-2 TRRS2-2)
