@@ -5,7 +5,7 @@ jobs:
   ergogen:
     runs-on: ubuntu-latest
     container:
-      image: node:17.1.0-alpine3.14
+      image: node:17.1-slim
     name: Ergogen
     steps:
       - name: Checkout
