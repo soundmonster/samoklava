@@ -4,16 +4,18 @@ name: Build
 jobs:
   ergogen:
     runs-on: ubuntu-latest
-    container:
-      image: node:17.1
+    # container:
+      # image: node:17.1
     name: Ergogen
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: pwd
-        run: pwd
-      - name: ls -lsa
-        run: ls -lsa
+      - name: Use Node.js 17
+        uses: actions/setup-node@v2
+        with:
+          node-version: 17.x
+      - run: pwd
+      - run: ls -lsa
       - name: Install dependencies
         run: npm install
       - name: Generate unrouted PCBs
