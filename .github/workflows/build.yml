@@ -1,0 +1,14 @@
+on: [push, pull_request, workflow_dispatch]
+
+name: Build
+jobs:
+  ergogen:
+    runs-on: ubuntu-latest
+    container:
+      image: node:17.1.0-alpine3.14
+    name: Ergogen
+    steps:
+      - name: Install dependencies
+        run: npm install
+      - name: Generate unrouted PCBs
+        run: npm run gen
