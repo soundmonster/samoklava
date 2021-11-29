@@ -8,6 +8,8 @@ jobs:
       image: node:17.1.0-alpine3.14
     name: Ergogen
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: pwd
         run: pwd
       - name: ls -lsa
