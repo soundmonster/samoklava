@@ -5,7 +5,7 @@ jobs:
   ergogen:
     runs-on: ubuntu-latest
     container:
-      image: node:17.1-slim
+      image: node:17.1
     name: Ergogen
     steps:
       - name: Checkout
@@ -15,6 +15,6 @@ jobs:
       - name: ls -lsa
         run: ls -lsa
       - name: Install dependencies
-        run: npm install --force
+        run: npm install
       - name: Generate unrouted PCBs
         run: npm run gen
