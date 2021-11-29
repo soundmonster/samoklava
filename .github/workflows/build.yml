@@ -8,6 +8,10 @@ jobs:
       image: node:17.1.0-alpine3.14
     name: Ergogen
     steps:
+      - name: pwd
+        run: pwd
+      - name: ls -lsa
+        run: ls -lsa
       - name: Install dependencies
         run: npm install
       - name: Generate unrouted PCBs
