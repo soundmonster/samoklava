@@ -1,0 +1,16 @@
+name: 'Export DSN'
+description: 'Export Specctra DSN from a Kicad PCB'
+inputs:
+  pcb_file:
+    description: 'Kicad input file'
+    required: true
+  dsn_file:
+    description: 'Specctra DSN output file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://soundmonster/kicad-automation-scripts:latest'
+  entrypoint: /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py
+  args:
+    - ${{ inputs.pcb_file }}
+    - ${{ inputs.dsn_file }}

@@ -20,6 +20,11 @@ jobs:
         run: npm install
       - name: Generate unrouted PCBs
         run: npm run gen
+      - name: Export DSN for main PCB
+        uses: ./.github/actions/export-dsn
+        with:
+          pcb_file: output/pcbs/board.kicad_pcb
+          dsn_file: output/pcbs/board.dsn
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:
