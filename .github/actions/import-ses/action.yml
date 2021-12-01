@@ -1,0 +1,20 @@
+name: 'Import SES to Kicad'
+description: 'Import Specctra SES into a Kicad PCB'
+inputs:
+  pcb_file:
+    description: 'Kicad pcbnew file'
+    required: true
+  ses_file:
+    description: 'Specctra SES file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://soundmonster/kicad-automation-scripts:latest'
+  entrypoint: '/bin/sh'
+  args:
+    - '-c'
+    # GH actions set $HOME to a weird location and we have to move Kicad settings there first
+    - |
+      mkdir -p $HOME/.config/kicad ;
+      cp /root/.config/kicad/* $HOME/.config/kicad ;
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/import_ses.py ${{ inputs.pcb_file }} ${{ inputs.ses_file }}

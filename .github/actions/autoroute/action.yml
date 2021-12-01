@@ -1,0 +1,17 @@
+name: 'Autoroute'
+description: 'Autoroute a given DSN file to SES with FreeRouting'
+inputs:
+  dsn_file:
+    description: 'Specctra DSN input file'
+    required: true
+  ses_file:
+    description: 'Specctra SES output file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://soundmonster/freerouting_cli:v0.1.0'
+  entrypoint: '/bin/sh'
+  args:
+    - '-c'
+    - |
+      java -jar /opt/freerouting_cli.jar -de ${{ inputs.dsn_file }} -do ${{ inputs.ses_file }}
