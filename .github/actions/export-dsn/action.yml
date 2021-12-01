@@ -11,7 +11,9 @@ runs:
   using: 'docker'
   image: 'docker://soundmonster/kicad-automation-scripts:latest'
   # entrypoint: /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py
-  entrypoint: 'ls -la ; ls -la /github/workspace'
+  entrypoint: '/bin/sh'
   args:
-    - /github/workspace/${{ inputs.pcb_file }}
-    - /github/workspace/${{ inputs.dsn_file }}
+    - '-c'
+    - 'pwd ; echo ; ls -la ; echo ; ls -la /github/ ; ls -la /github/workspace ; echo ; whoami ; id'
+    # - /github/workspace/${{ inputs.pcb_file }}
+    # - /github/workspace/${{ inputs.dsn_file }}
