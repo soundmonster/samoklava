@@ -24,6 +24,8 @@ runs:
       ls -la /tmp ;
       echo ;
       ls -la /root/.config/kicad/ ;
+      echo ;
+      cat /root/.config/kicad/pcbnew ;
       cp /tmp/export_dsn_screencast.ogv /github/workspace/output/ ;
       exit 0
 
