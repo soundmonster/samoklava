@@ -20,4 +20,6 @@ runs:
       ls -l /github/workspace/${{ inputs.pcb_file }};
       ls -l /github/workspace/${{ inputs.dsn_file }};
       echo ;
-      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }}
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }} --record ;
+      exit 0
+

@@ -23,6 +23,11 @@ jobs:
         with:
           pcb_file: output/pcbs/board.kicad_pcb
           dsn_file: output/pcbs/board.dsn
+      - name: Persist error recording
+        uses: actions/upload-artifact@v2
+        with:
+          name: unrouted-output
+          path: /tmp/export_dsn_screencast.ogv
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:
