@@ -10,7 +10,8 @@ inputs:
 runs:
   using: 'docker'
   image: 'docker://soundmonster/kicad-automation-scripts:latest'
-  entrypoint: /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py
+  # entrypoint: /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py
+  entrypoint: 'ls -la ; ls -la /github/workspace'
   args:
     - /github/workspace/${{ inputs.pcb_file }}
     - /github/workspace/${{ inputs.dsn_file }}
