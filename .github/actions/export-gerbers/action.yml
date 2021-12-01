@@ -21,4 +21,4 @@ runs:
     - '-c'
     - |
       mkdir -p $GITHUB_WORKSPACE/${{ inputs.gerbers_dir }} ;
-      kikit fab ${{ inputs.fab }} ${{ inputs.flags }} ${{ inputs.pcb_file }} ${{ inputs.gerbers_dir }}
+      kikit fab ${{ inputs.fab }} ${{ inputs.flags }} $GITHUB_WORKSPACE/${{ inputs.pcb_file }} $GITHUB_WORKSPACE/${{ inputs.gerbers_dir }}
