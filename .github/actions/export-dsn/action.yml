@@ -17,7 +17,8 @@ runs:
     - |
       apt-get update ;
       apt-get install -y strace ;
-      strace -f /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }} --record ;
+      sed -i "s/\['pcbnew', pcb_file\]/\['strace', 'pcbnew', pcb_file\]/" /usr/lib/python3.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py ;
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }} --record ;
       cp /tmp/export_dsn_screencast.ogv /github/workspace/output/ ;
       exit 0
 
