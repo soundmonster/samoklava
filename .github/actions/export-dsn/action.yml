@@ -14,10 +14,6 @@ runs:
   entrypoint: '/bin/sh'
   args:
     - '-c'
-    - |
-      pwd ;
-      env ;
-      echo ;
-      echo /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }}
+    - 'echo /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py "$GITHUB_WORKSPACE/${{ inputs.pcb_file }}" "$GITHUB_WORKSPACE/${{ inputs.dsn_file }}"'
     # - /github/workspace/${{ inputs.pcb_file }}
     # - /github/workspace/${{ inputs.dsn_file }}
