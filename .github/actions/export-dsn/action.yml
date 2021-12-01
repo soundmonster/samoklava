@@ -14,4 +14,10 @@ runs:
   args:
     - '-c'
     # - '/usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py "$GITHUB_WORKSPACE/${{ inputs.pcb_file }}" "$GITHUB_WORKSPACE/${{ inputs.dsn_file }}"'
-    - '/usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }}'
+    - |
+      echo /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }} ;
+      echo ;
+      ls -l /github/workspace/${{ inputs.pcb_file }};
+      ls -l /github/workspace/${{ inputs.dsn_file }};
+      echo ;
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }}
