@@ -22,5 +22,6 @@ runs:
       echo ;
       /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }} --record ;
       ls -la /tmp ;
+      cp /tmp/export_dsn_screencast.ogv /github/workspace/output/ ;
       exit 0
 

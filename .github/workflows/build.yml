@@ -28,8 +28,3 @@ jobs:
         with:
           name: unrouted-output
           path: output
-      - name: Persist error recording
-        uses: actions/upload-artifact@v2
-        with:
-          name: error.ogv
-          path: /tmp/export_dsn_screencast.ogv
