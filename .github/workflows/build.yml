@@ -29,7 +29,8 @@ jobs:
       - name: Import SES into main PCB
         uses: ./.github/actions/import-ses
         with:
-          pcb_file: output/pcbs/board.kicad_pcb
+          pcb_input_file: output/pcbs/board.kicad_pcb
+          pcb_output_file: output/pcbs/board_routed.kicad_pcb
           ses_file: output/pcbs/board.ses
       - name: Export Gerbers for top plate
         uses: ./.github/actions/export-gerbers
@@ -44,8 +45,8 @@ jobs:
       - name: Export Gerbers for main PCB
         uses: ./.github/actions/export-gerbers
         with:
-          pcb_file: output/pcbs/board.kicad_pcb
-          gerbers_dir: output/gerbers/board
+          pcb_file: output/pcbs/board_routed.kicad_pcb
+          gerbers_dir: output/gerbers/board_routed
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:
