@@ -1,8 +1,8 @@
 {
     "scripts": {
-        "gen": "ergogen shwamoklava.yaml"
+        "gen": "ergogen samoklava.yaml"
     },
     "dependencies": {
-        "ergogen": "github:soundmonster/ergogen#shwamoklava"
+        "ergogen": "github:soundmonster/ergogen#samoklava"
     }
 }
