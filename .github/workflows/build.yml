@@ -2,11 +2,9 @@ on: [push, pull_request, workflow_dispatch]
 
 name: Build
 jobs:
-  ergogen:
+  generate:
     runs-on: ubuntu-latest
-    # container:
-      # image: node:17.1
-    name: Ergogen
+    name: Generate
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,6 +21,16 @@ jobs:
         with:
           pcb_file: output/pcbs/board.kicad_pcb
           dsn_file: output/pcbs/board.dsn
+      - name: Autoroute main PCB
+        uses: ./.github/actions/autoroute
+        with:
+          dsn_file: output/pcbs/board.dsn
+          ses_file: output/pcbs/board.ses
+      - name: Import SES into main PCB
+        uses: ./.github/actions/import-ses
+        with:
+          pcb_file: output/pcbs/board.kicad_pcb
+          ses_file: output/pcbs/board.ses
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:

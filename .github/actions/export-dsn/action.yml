@@ -13,17 +13,8 @@ runs:
   entrypoint: '/bin/sh'
   args:
     - '-c'
-    # - '/usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py "$GITHUB_WORKSPACE/${{ inputs.pcb_file }}" "$GITHUB_WORKSPACE/${{ inputs.dsn_file }}"'
-    # - |
-    #   apt-get update ;
-    #   apt-get install -y strace ;
-    #   sed -i "s/\['pcbnew', pcb_file\]/\['strace', 'pcbnew', pcb_file\]/" /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py ;
+    # GH actions set $HOME to a weird location and we have to move Kicad settings there first
     - |
-      env ;
-      echo ;
       mkdir -p $HOME/.config/kicad ;
       cp /root/.config/kicad/* $HOME/.config/kicad ;
-      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py /github/workspace/${{ inputs.pcb_file }} /github/workspace/${{ inputs.dsn_file }} --record ;
-      cp /tmp/export_dsn_screencast.ogv /github/workspace/output/ ;
-      exit 0
-
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py ${{ inputs.pcb_file }} ${{ inputs.dsn_file }}
