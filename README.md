@@ -16,7 +16,14 @@ The interesting thing about this keyboard is that it's a declarative design ("sa
 * uses [kicad-automation-scripts](https://github.com/productize/kicad-automation-scripts) and [FreeRouting](https://github.com/freerouting/freerouting) to **automatically route the traces on the PCB**
 * uses [KiKit](https://github.com/yaqwsx/KiKit) to render PCB previews (see top of this file) and production-ready **Gerber files**
 
+## Features
+
+* Extra pins and a slider switch for wireless Promicro clones (tested with nice!nano)
+* Wired operation should be possible but is not tested; TRRS footprints are included and routed
+* Reset switches are easily accessible
+
 ## How to
+
 If you would like to modify this:
 * fork it
 * change `samoklava.yaml` to your liking
