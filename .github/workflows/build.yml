@@ -50,5 +50,5 @@ jobs:
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:
-          name: unrouted-output
+          name: samoklava-routed-pcbs-and-gerbers
           path: output
