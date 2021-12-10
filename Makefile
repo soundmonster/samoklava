@@ -1,10 +1,13 @@
 # .DELETE_ON_ERROR:
 .SECONDARY:
-.PHONY: clean all
+.PHONY: clean all setup
 .DEFAULT: all
 
 container_cmd ?= docker
 container_args ?= -w /board -v $(shell pwd):/board --rm
+
+setup:
+	npm install
 
 # outputs from 
 output/pcbs/board.kicad_pcb output/pcbs/top_plate.kicad_pcb output/pcbs/bottom_plate.kicad_pcb &: samoklava.yaml
