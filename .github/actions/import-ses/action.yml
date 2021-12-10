@@ -20,5 +20,6 @@ runs:
     - |
       mkdir -p $HOME/.config/kicad ;
       cp /root/.config/kicad/* $HOME/.config/kicad ;
-      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/import_ses.py $GITHUB_WORKSPACE/${{ inputs.pcb_input_file }} $GITHUB_WORKSPACE/${{ inputs.ses_file }} --output-file $GITHUB_WORKSPACE/${{ inputs.pcb_output_file }} --record || echo 'oopsie';
-      cp /tmp/*.ogv $GITHUB_WORKSPACE/
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/import_ses.py $GITHUB_WORKSPACE/${{ inputs.pcb_input_file }} $GITHUB_WORKSPACE/${{ inputs.ses_file }} --output-file $GITHUB_WORKSPACE/${{ inputs.pcb_output_file }} --record ;
+      cp /tmp/*.ogv $GITHUB_WORKSPACE/output/ ;
+      exit 0 ;
