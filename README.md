@@ -11,7 +11,7 @@ has the exact number of keys needed for the [Miryoku](https://github.com/manna-h
 The interesting thing about this keyboard is that it's a declarative design ("samoklava" can be loosely translated as
 "keyboard that assembles itself" from Russian).
 * Layout is declared using [Ergogen](https://github.com/mrzealot/ergogen/)
-* The build system uses Ergogen to translate YAML to a KiCad PCB and plate files for FR2 fab or laser cutting
+* The build system uses Ergogen to translate YAML to a KiCad PCB and plate files for FR-4 fab or laser cutting
 * uses [kicad-automation-scripts](https://github.com/productize/kicad-automation-scripts) and [FreeRouting](https://github.com/freerouting/freerouting) to **automatically route the traces on the PCB**
 * uses [KiKit](https://github.com/yaqwsx/KiKit) to render PCB previews (see top of this file) and production-ready **Gerber files**
 
