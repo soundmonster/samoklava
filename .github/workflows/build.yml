@@ -32,21 +32,21 @@ jobs:
           pcb_input_file: output/pcbs/board.kicad_pcb
           pcb_output_file: output/pcbs/board_routed.kicad_pcb
           ses_file: output/pcbs/board.ses
-      - name: Export Gerbers for top plate
-        uses: ./.github/actions/export-gerbers
-        with:
-          pcb_file: output/pcbs/top.kicad_pcb
-          gerbers_dir: output/gerbers/top
-      - name: Export Gerbers for bottom plate
-        uses: ./.github/actions/export-gerbers
-        with:
-          pcb_file: output/pcbs/bottom.kicad_pcb
-          gerbers_dir: output/gerbers/bottom
-      - name: Export Gerbers for main PCB
-        uses: ./.github/actions/export-gerbers
-        with:
-          pcb_file: output/pcbs/board_routed.kicad_pcb
-          gerbers_dir: output/gerbers/board_routed
+      # - name: Export Gerbers for top plate
+      #   uses: ./.github/actions/export-gerbers
+      #   with:
+      #     pcb_file: output/pcbs/top.kicad_pcb
+      #     gerbers_dir: output/gerbers/top
+      # - name: Export Gerbers for bottom plate
+      #   uses: ./.github/actions/export-gerbers
+      #   with:
+      #     pcb_file: output/pcbs/bottom.kicad_pcb
+      #     gerbers_dir: output/gerbers/bottom
+      # - name: Export Gerbers for main PCB
+      #   uses: ./.github/actions/export-gerbers
+      #   with:
+      #     pcb_file: output/pcbs/board_routed.kicad_pcb
+      #     gerbers_dir: output/gerbers/board_routed
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:
