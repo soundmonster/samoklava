@@ -1,0 +1,20 @@
+name: 'Export DSN'
+description: 'Export Specctra DSN from a Kicad PCB'
+inputs:
+  pcb_file:
+    description: 'Kicad input file'
+    required: true
+  dsn_file:
+    description: 'Specctra DSN output file'
+    required: true
+runs:
+  using: 'docker'
+  image: 'docker://soundmonster/kicad-automation-scripts:latest'
+  entrypoint: '/bin/sh'
+  args:
+    - '-c'
+    # GH actions set $HOME to a weird location and we have to move Kicad settings there first
+    - |
+      mkdir -p $HOME/.config/kicad ;
+      cp /root/.config/kicad/* $HOME/.config/kicad ;
+      /usr/lib/python2.7/dist-packages/kicad-automation/pcbnew_automation/export_dsn.py ${{ inputs.pcb_file }} ${{ inputs.dsn_file }}

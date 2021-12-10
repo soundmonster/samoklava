@@ -16,4 +16,22 @@ The interesting thing about this keyboard is that it's a declarative design ("sa
 * uses [kicad-automation-scripts](https://github.com/productize/kicad-automation-scripts) and [FreeRouting](https://github.com/freerouting/freerouting) to **automatically route the traces on the PCB**
 * uses [KiKit](https://github.com/yaqwsx/KiKit) to render PCB previews (see top of this file) and production-ready **Gerber files**
 
-See the [Makefile](Makefile) for more details.
+## Features
+
+* Extra pins and a slider switch for wireless Promicro clones (tested with nice!nano)
+* Wired operation should be possible but is not tested; TRRS footprints are included and routed
+* Reset switches are easily accessible
+
+## How to
+
+If you would like to modify this:
+* fork it
+* change `samoklava.yaml` to your liking
+* push your changes; the build it GitHub Workflow will pick it up, autoroute and generate Gerbers, all in a zip file.
+  See https://github.com/soundmonster/samoklava/actions
+* or:
+  * make sure to have Docker CLI and NodeJS installed
+  * run `make setup clean all`
+  * check the `output` folder for KiCad PCBs and Gerbers
+
+See the [workflow](.github/workflows/build.yml) or the [Makefile](Makefile) for more details.
