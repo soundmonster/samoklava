@@ -282,18 +282,20 @@ pcbs:
         anchor:
           ref:
             - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+          shift: [kx, -0.5 kx]
+          rotate: -38
         params:
-          text: "samoklava v0.1\\nby soundmonster"
+          text: "Dupa123\\nby KostkaBrukowa"
           justify: left
       info_r:
         type: text
         anchor:
           ref:
             - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+          shift: [kx, -0.5 kx]
+          rotate: -38
         params:
           layer: B.SilkS
-          text: "samoklava v0.1\\nby soundmonster"
+          text: "Dupa123\\nby KostkaBrukowa"
           justify: right mirror
 
