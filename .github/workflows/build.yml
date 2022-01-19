@@ -32,16 +32,6 @@ jobs:
           pcb_input_file: output/pcbs/board.kicad_pcb
           pcb_output_file: output/pcbs/board_routed.kicad_pcb
           ses_file: output/pcbs/board.ses
-      - name: Export Gerbers for top plate
-        uses: ./.github/actions/export-gerbers
-        with:
-          pcb_file: output/pcbs/top_plate.kicad_pcb
-          gerbers_dir: output/gerbers/top_plate
-      - name: Export Gerbers for bottom plate
-        uses: ./.github/actions/export-gerbers
-        with:
-          pcb_file: output/pcbs/bottom_plate.kicad_pcb
-          gerbers_dir: output/gerbers/bottom_plate
       - name: Export Gerbers for main PCB
         uses: ./.github/actions/export-gerbers
         with:
