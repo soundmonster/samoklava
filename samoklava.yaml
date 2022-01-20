@@ -6,21 +6,8 @@ units:
 points:
   key:
     footprints:
-      choc_hotswap:
-        type: choc
-        params:
-          hotswap: true
-          reverse: true
-          keycaps: true
-        nets:
-          # from: P1
-          # to: P2
-          from: =column_net
-          to: GND
       choc:
-        type: choc
-        anchor:
-          rotate: 180
+        type: chocmini
         nets:
           from: =column_net
           to: GND
