@@ -115,7 +115,7 @@ outlines:
     raw:
       - type: keys
         side: left
-        size: [kx + 1.1px, ky + 1.1py]
+        size: [kx + 1.01px, ky + 1py]
         corner: px
     thumbfan_glue:
       - type: polygon
