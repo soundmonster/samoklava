@@ -115,7 +115,7 @@ outlines:
     raw:
       - type: keys
         side: left
-        size: [kx + 2px, ky + 2py]
+        size: [kx + 1.1px, ky + 1.1py]
         corner: px
     thumbfan_glue:
       - type: polygon
@@ -264,4 +264,26 @@ pcbs:
         nets:
           from: GND
           to: RST
+      info_l:
+        type: text
+        anchor:
+          ref:
+            - matrix_pinky_bottom
+          shift: [kx, -0.5 kx]
+          rotate: -38
+        params:
+          text: "Dupa123\\nby KostkaBrukowa"
+          justify: left
+      info_r:
+        type: text
+        anchor:
+          ref:
+            - matrix_pinky_bottom
+          shift: [kx, -0.5 kx]
+          rotate: -38
+        params:
+          layer: B.SilkS
+          text: "Dupa123\\nby KostkaBrukowa"
+          justify: right mirror
+
 
