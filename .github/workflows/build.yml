@@ -15,7 +15,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Generate unrouted PCBs
-        run: npm run gen
+        run: |
+          cp ./promicro.js ./node_modules/ergogen/src/footprints
+          cp ./button.js ./node_modules/ergogen/src/footprints
+          npm run gen
       - name: Export DSN for main PCB
         uses: ./.github/actions/export-dsn
         with:
