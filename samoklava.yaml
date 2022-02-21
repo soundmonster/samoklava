@@ -151,6 +151,13 @@ outlines:
             shift: [0.5 (kx + px), 0]
           - ref: matrix_index_bottom
           - ref: matrix_index_top
+    patch_hole:
+      - type: polygon
+        points:
+          - ref: matrix_ring_top
+          - ref: matrix_index_top
+          - ref: matrix_index_bottom
+          - ref: matrix_ring_bottom
     top_round:
       - type: polygon
         points:
@@ -206,6 +213,10 @@ outlines:
       top_round:
         type: outline
         name: top_round
+        operation: add
+      patch_hole:
+        type: outline
+        name: patch_hole
         operation: add
     base_outline:
       main:
