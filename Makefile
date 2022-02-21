@@ -34,11 +34,11 @@ output/routed_pcbs/%-drc/: output/routed_pcbs/%.kicad_pcb
 
 output/routed_pcbs/%-front.png: output/routed_pcbs/%.kicad_pcb
 	mkdir -p $(shell dirname $@)
-	${container_cmd} run ${container_args} yaqwsx/kikit:v0.7 pcbdraw --style builtin:oshpark-afterdark.json $< $@
+	${container_cmd} run ${container_args} yaqwsx/kikit:latest pcbdraw --style builtin:oshpark-afterdark.json $< $@
 
 output/routed_pcbs/%-back.png: output/routed_pcbs/%.kicad_pcb
 	mkdir -p $(shell dirname $@)
-	${container_cmd} run ${container_args} yaqwsx/kikit:v0.7 pcbdraw -b --style builtin:oshpark-afterdark.json $< $@
+	${container_cmd} run ${container_args} yaqwsx/kikit:latest pcbdraw -b --style builtin:oshpark-afterdark.json $< $@
 
 output/gerbers/%/gerbers.zip: output/routed_pcbs/%.kicad_pcb
 	mkdir -p $(shell dirname $@)
