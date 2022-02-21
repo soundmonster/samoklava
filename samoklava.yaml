@@ -30,7 +30,7 @@ points:
             top:
               column_net: P19
         ring:
-          rotate: -28
+          rotate: -10
           stagger: 10
           spread: cx + 4
           row_overrides:
@@ -42,9 +42,9 @@ points:
               column_net: P14
         middle:
           origin: [ 0, -1cy ]
-          rotate: 0
+          rotate: -18
           stagger: 11.5
-          spread: 19
+          spread: 18
           row_overrides:
             bottom:
               column_net: P16
@@ -66,8 +66,9 @@ points:
               column_net: P6
         inner:
           origin: [ 0, -1cy ]
-          rotate: -5
-          stagger: 1
+          rotate: 0
+          spread: cx
+          stagger: -1
           row_overrides:
             bottom:
               column_net: P5
@@ -272,7 +273,7 @@ pcbs:
           shift: [kx, -0.5 kx]
           rotate: -38
         params:
-          text: "Dupa123\\nby KostkaBrukowa"
+          text: "Dupa\\nby KostkaBrukowa"
           justify: left
       info_r:
         type: text
@@ -283,7 +284,7 @@ pcbs:
           rotate: -38
         params:
           layer: B.SilkS
-          text: "Dupa123\\nby KostkaBrukowa"
+          text: "Dupa\\nby KostkaBrukowa"
           justify: right mirror
 
 
