@@ -282,7 +282,7 @@ pcbs:
           ref:
             - matrix_pinky_bottom
           shift: [kx, -0.5 kx]
-          rotate: -38
+          rotate: -25
         params:
           text: "Dupa\\nby KostkaBrukowa"
           justify: left
@@ -292,7 +292,7 @@ pcbs:
           ref:
             - matrix_pinky_bottom
           shift: [kx, -0.5 kx]
-          rotate: -38
+          rotate: -25
         params:
           layer: B.SilkS
           text: "Dupa\\nby KostkaBrukowa"
