@@ -3,6 +3,7 @@ units:
   ky: cy
   px: 2
   py: 2
+  ring_rotate: -10
 points:
   key:
     footprints:
@@ -30,7 +31,7 @@ points:
             top:
               column_net: P19
         ring:
-          rotate: -10
+          rotate: -14
           stagger: 10
           spread: cx + 4
           row_overrides:
@@ -42,9 +43,9 @@ points:
               column_net: P14
         middle:
           origin: [ 0, -1cy ]
-          rotate: -18
-          stagger: 11.5
-          spread: 18
+          rotate: -14
+          stagger: 8
+          spread: 16.5
           row_overrides:
             bottom:
               column_net: P16
@@ -55,8 +56,8 @@ points:
         index:
           origin: [ 0, -1cy ]
           rotate: 0
-          stagger: -7
-          spread: 23
+          stagger: -5
+          spread: cx
           row_overrides:
             bottom:
               column_net: P8
@@ -68,7 +69,7 @@ points:
           origin: [ 0, -1cy ]
           rotate: 0
           spread: cx
-          stagger: -1
+          stagger: -5
           row_overrides:
             bottom:
               column_net: P5
@@ -86,7 +87,7 @@ points:
     thumbfan:
       anchor:
         ref: matrix_index_bottom
-        shift: [ -3, -22 ]
+        shift: [ -3, -25 ]
       columns:
         home:
           spread: 19
@@ -96,6 +97,7 @@ points:
             column_mark: R
         near:
           rotate: 0
+          stagger: -3
           spread: -19
           key:
             column_net: P0
