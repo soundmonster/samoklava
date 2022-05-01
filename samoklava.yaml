@@ -337,25 +337,26 @@ pcbs:
         nets:
           from: GND
           to: RST
+      broom:
+        type: broom
+        anchor:
+          shift: [23.368, -2.54]
+          rotate: 180
       info_l:
         type: text
         anchor:
-          ref:
-            - matrix_pinky_bottom
-          shift: [kx -5.3, -0.5 kx +0.6]
+          shift: [87.376, 9.11]
           rotate: -5
         params:
-          text: "Dupa\\nby KostkaBrukowa"
+          text: "Dupa Sweep\\nby KostkaBrukowa"
           justify: left
       info_r:
         type: text
         anchor:
-          ref:
-            - matrix_pinky_bottom
-          shift: [kx-5.3, -0.5 kx + 0.6]
+          shift: [87.376, 9.11]
           rotate: -5
         params:
           layer: B.SilkS
-          text: "Dupa\\nby KostkaBrukowa"
+          text: "Dupa Sweep\\nby KostkaBrukowa"
           justify: right mirror
 
