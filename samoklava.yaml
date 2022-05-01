@@ -88,7 +88,7 @@ points:
       columns:
         far:
           origin: [-cx/2, -cy/2]
-          stagger: 5.64
+          stagger: 5.65
           spread: -3.04
           rotate: -30
           key:
