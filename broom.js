@@ -8,9 +8,9 @@ module.exports = {
     },
     body: p => {
         return `
-(module Kailh:ferris_broom (layer ${p.param.mirror ? 'F.' :'B.'}Cu) (tedit 5F180684) (tstamp 5F1867FA)
+(module Kailh:ferris_broom${p.param.mirror} (layer ${p.param.mirror ? 'F.' :'B.'}Cu) (tedit 5F180684) (tstamp 5F1867FA)
 ${p.at}
-(fp_text reference G*** (at 0 0 351) (layer ${p.param.mirror ? 'F.' :'B.'}SilkS) hide
+(fp_text reference G***${p.param.mirror} (at 0 0 351) (layer ${p.param.mirror ? 'F.' :'B.'}SilkS) hide
 (effects (font (size 1.524 1.524) (thickness 0.3)) (justify mirror))
 )
 (fp_text value LOGO (at 0.75 0 351) (layer ${p.param.mirror ? 'F.' :'B.'}SilkS) hide

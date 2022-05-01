@@ -106,8 +106,7 @@ points:
           origin: [-cx/2, -cy/2]
           stagger: -4.72
           spread: -cx + 0.27
-          rotate: 15 # 35 degrees cumulative
-          #  origin: [-9.5, -9] 25,06
+          rotate: 15
           key:
             column_net: P1
             column_mark: P
@@ -210,8 +209,8 @@ outlines:
       - type: circle
         anchor:
           ref: matrix_middle_bottom
-          shift: [-5.8, -116.39]
-        radius: 86.29
+          shift: [-10.47, -169.37]
+        radius: 139.47
       - type: outline
         name: bottom_arc_right_intersect
         operation: intersect
