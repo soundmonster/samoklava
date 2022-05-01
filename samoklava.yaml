@@ -20,9 +20,6 @@ points:
       columns:
         pinky:
           origin: [ 0, -1cy ]
-          rotate: 28  # 19 degrees
-          stagger: 0 # affects distance to previous column so useless for a left pinky column
-          spread: 0 # affects distance to previous column so useless for a left pinky column
           row_overrides:
             bottom:
               column_net: P21
@@ -31,9 +28,9 @@ points:
             top:
               column_net: P19
         ring:
-          rotate: -14
-          stagger: 10
-          spread: cx + 4
+          rotate: 0
+          stagger: 12.23
+          spread: cx
           row_overrides:
             bottom:
               column_net: P18
@@ -43,9 +40,9 @@ points:
               column_net: P14
         middle:
           origin: [ 0, -1cy ]
-          rotate: -14
-          stagger: 8
-          spread: 16.5
+          rotate: 0
+          stagger: 4.46
+          spread: cx
           row_overrides:
             bottom:
               column_net: P16
@@ -56,7 +53,7 @@ points:
         index:
           origin: [ 0, -1cy ]
           rotate: 0
-          stagger: -5
+          stagger: -4.86
           spread: cx
           row_overrides:
             bottom:
@@ -69,7 +66,7 @@ points:
           origin: [ 0, -1cy ]
           rotate: 0
           spread: cx
-          stagger: -5
+          stagger: -1.88
           row_overrides:
             bottom:
               column_net: P5
@@ -79,33 +76,38 @@ points:
               column_net: P3
       rows:
         bottom:
-          padding: 1cy
+          padding: 1ky
         home:
-          padding: 1cy
+          padding: 1ky
         top:
-          padding: 1cy
+          padding: 1ky
     thumbfan:
       anchor:
-        ref: matrix_index_bottom
-        shift: [ -3, -25 ]
+        ref: matrix_inner_bottom
+        shift: [ 10.5, -25.06 ]
       columns:
-        home:
-          spread: 19
-          rotate: 5
+        far:
+          origin: [-cx/2, -cy/2]
+          stagger: 5.64
+          spread: -3.04
+          rotate: -30
           key:
             column_net: P2
             column_mark: R
         near:
-          rotate: 0
-          stagger: -3
-          spread: -19
+          origin: [-cx/2, -cy/2]
+          rotate: 15
+          stagger: -4.72
+          spread: -cx + 0.27
           key:
             column_net: P0
             column_mark: M
-        far:
-          spread: 38
-          rotate: 0 # 35 degrees cumulative
-          #  origin: [-9.5, -9]
+        home:
+          origin: [-cx/2, -cy/2]
+          stagger: -4.72
+          spread: -cx + 0.27
+          rotate: 15 # 35 degrees cumulative
+          #  origin: [-9.5, -9] 25,06
           key:
             column_net: P1
             column_mark: P
@@ -118,77 +120,141 @@ outlines:
     raw:
       - type: keys
         side: left
-        size: [kx + 1.01px, ky + 1py]
+        size: [kx, ky]
         corner: px
-    thumbfan_glue:
-      - type: polygon
-        points:
-          - ref: matrix_inner_bottom
-            shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
-          - ref: thumbfan_far_thumb
-            shift: [0.5 kx - 0.5px, 0.5 ky + 0.5 py]
-          - ref: thumbfan_far_thumb
-            shift: [0.5 kx - 0.5px, -0.5 ky - 0.5 py]
-          - ref: thumbfan_near_thumb
-            shift: [-0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
-          - ref: matrix_pinky_bottom
-            shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
-          - ref: matrix_pinky_home
-          - ref: matrix_inner_home
-    patch_outer:
-      - type: polygon
-        points:
-          - ref: matrix_ring_top
-          - ref: matrix_ring_bottom
-          - ref: matrix_pinky_bottom
-            shift: [-0.5 (kx + px), 0]
-          - ref: matrix_pinky_top
-            shift: [-0.5 (kx + px), 0]
-    patch_inner:
-      - type: polygon
-        points:
-          - ref: matrix_inner_top
-            shift: [0.5 (kx + px), 0]
-          - ref: matrix_inner_bottom
-            shift: [0.5 (kx + px), 0]
-          - ref: matrix_index_bottom
-          - ref: matrix_index_top
-    patch_hole:
-      - type: polygon
-        points:
-          - ref: matrix_ring_top
-          - ref: matrix_index_top
-          - ref: matrix_index_bottom
-          - ref: matrix_ring_bottom
-    top_round:
+    top_arc_left_intersect:
       - type: polygon
         points:
           - ref: matrix_pinky_top
-            shift: [-0.5 * (kx - px), 0.5 * (ky + py)]
-          - ref: matrix_ring_top
-            shift: [-0.5 (kx + px), 0.5 * (ky + py)]
+            shift: [-cx/2, cy/2]
           - ref: matrix_middle_top
-            shift: [-0.5 (kx -px), 0.5 * (ky + py)]
-          - ref: matrix_index_top
-            shift: [ (kx), 0.5 * (ky + py)]
+            shift: [cx/2, cy/2]
+          - ref: matrix_middle_top
+            shift: [cx/2, 2cy]
+          - ref: matrix_pinky_top
+            shift: [-cx/2, 3cy]
+    top_arc_right_intersect:
+      - type: polygon
+        points:
+          - ref: matrix_middle_top
+            shift: [cx/2, -cy/2]
+          - ref: matrix_middle_top
+            shift: [cx/2, 2cy]
           - ref: matrix_inner_top
-            shift: [0.5 (kx - px), 0.5 * (ky + py)]
-          - ref: matrix_index_bottom
+            shift: [cx/2, 3cy]
+          - ref: matrix_inner_top
+            shift: [cx/2, cy/2]
+    bottom_arc_left_intersect:
+      - type: polygon
+        points:
+          - ref: matrix_pinky_bottom
+            shift: [-cx/2, cy/2]
+          - ref: matrix_middle_bottom
+            shift: [cx/2, cy/2]
+          - ref: matrix_middle_bottom
+            shift: [cx/2, -4cy]
+          - ref: matrix_pinky_bottom
+            shift: [-cx/2, -3cy]
+    bottom_arc_right_intersect:
+      - type: polygon
+        points:
+          - ref: matrix_middle_bottom
+            shift: [cx/2, -cy/2]
+          - ref: thumbfan_far_thumb
+            shift: [cx/2, cy/2]
+          - ref: thumbfan_far_thumb
+            shift: [cx, -cy/2]
+          - ref: thumbfan_far_thumb
+            shift: [-2.1cx, -4cy]
+    right_cut:
+      - type: polygon
+        points:
+          - ref: thumbfan_far_thumb
+            shift: [cx/2, -cy/2]
+          - ref: thumbfan_far_thumb
+            shift: [cx/2, 5cy]
+          - ref: thumbfan_far_thumb
+            shift: [3cx, 5cy]
+          - ref: thumbfan_far_thumb
+            shift: [3cx, -cy/2]
+
+    arc_top_left: #todo check with top left corner shift
+      - type: circle
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [2.2, -24.22]
+        radius: 68.7
+      - type: outline
+        name: top_arc_left_intersect
+        operation: intersect
+
+    arc_top_right:
+      - type: circle
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [-5.58, -99.1]
+        radius: 144.02
+      - type: outline
+        name: top_arc_right_intersect
+        operation: intersect
+    arc_bottom_left:
+      - type: circle
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [-42.74, -351.32]
+        radius: 323.96
+      - type: outline
+        name: bottom_arc_left_intersect
+        operation: intersect
+    arc_bottom_right:
+      - type: circle
+        anchor:
+          ref: matrix_middle_bottom
+          shift: [-5.8, -116.39]
+        radius: 86.29
+      - type: outline
+        name: bottom_arc_right_intersect
+        operation: intersect
+    arc_bottom:
+      - type: outline
+        name: arc_bottom_left
+      - type: outline
+        name: arc_bottom_right
+
+    edge_points:
+      - type: polygon
+        points:
+          - ref: matrix_pinky_top
+            shift: [-cx/2, cy/2]
+          - ref: matrix_ring_top
+            shift: [-cx/2, cy/2]
+          - ref: matrix_middle_top
+            shift: [-cx/2, cy/2]
+          - ref: matrix_middle_top
+            shift: [cx/2, cy/2]
+          - ref: matrix_index_top
+            shift: [cx/2, cy/2]
+          - ref: matrix_inner_top
+            shift: [cx/2, cy/2]
+          - ref: matrix_inner_bottom
+            shift: [cx/2, -cy/2]
+          - ref: thumbfan_far_thumb
+            shift: [cx/2, cy/2]
+          - ref: thumbfan_far_thumb
+            shift: [cx/2, -15]
+          - ref: matrix_pinky_bottom
+            shift: [-cx/2, -1.5cy]
+          - ref: matrix_pinky_top
+            shift: [-cx/2, cy/2]
     controller_area:
       main:
         type: rectangle
         anchor:
           ref:
             - matrix_inner_top
-          shift: [0 kx, -4.05 ky]
-        size: [32, 76.5]
+          shift: [0, -60.25]
+        size: [32, 62.5]
         corner: px
-    switches:
-      main:
-        type: keys
-        side: left
-        size: 14
-        bound: false
     keycaps:
       main:
         type: keys
@@ -196,57 +262,50 @@ outlines:
         size: [kx, ky]
         bound: false
         corner: 1
-    keywell:
-      main:
-        type: outline
-        name: raw
-      patch_inner:
-        type: outline
-        name: patch_inner
-        operation: add
-      patch_outer:
-        type: outline
-        name: patch_outer
-        operation: add
-      thumbfan_glue:
-        type: outline
-        name: thumbfan_glue
-        operation: add
-      top_round:
-        type: outline
-        name: top_round
-        operation: add
-      patch_hole:
-        type: outline
-        name: patch_hole
-        operation: add
     base_outline:
       main:
         type: outline
-        name: keywell
+        name: raw
+      arc_top_left:
+        type: outline
+        name: arc_top_left
+      arc_top_right:
+        type: outline
+        name: arc_top_right
+      edge:
+        type: outline
+        name: edge_points
       controller:
         type: outline
         name: controller_area
-        operation: add
+      arc_bottom_right:
+        type: outline
+        name: arc_bottom
+        operation: subtract
+      right_cut:
+        type: outline
+        name: right_cut
+        operation: subtract
+
     plate:
       main:
         type: outline
-        name: keywell
+        name: base_outline
       switches:
         type: outline
-        name: switches
+        name: keycaps
         operation: subtract
     pcb:
       main:
         type: outline
         name: base_outline
+
 pcbs:
   board:
     outlines:
       edge:
         outline: pcb
         layer: Edge.Cuts
-        # TODO there's a way to add stuff to the silkscreen layer
     footprints:
       mcu_l:
         type: promicro
@@ -299,5 +358,4 @@ pcbs:
           layer: B.SilkS
           text: "Dupa\\nby KostkaBrukowa"
           justify: right mirror
-
 
