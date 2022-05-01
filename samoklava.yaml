@@ -88,7 +88,7 @@ points:
       columns:
         far:
           origin: [-cx/2, -cy/2]
-          stagger: 5.65
+          stagger: 5.64
           spread: -3.04
           rotate: -30
           key:
@@ -339,6 +339,13 @@ pcbs:
           to: RST
       broom:
         type: broom
+        anchor:
+          shift: [23.368, -2.54]
+          rotate: 180
+      broom_mirror:
+        type: broom
+        params:
+          mirror: true
         anchor:
           shift: [23.368, -2.54]
           rotate: 180
