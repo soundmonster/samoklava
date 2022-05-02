@@ -104,9 +104,9 @@ points:
             column_mark: M
         home:
           origin: [-cx/2, -cy/2]
-          stagger: -4.72
-          spread: -cx + 0.27
-          rotate: 15
+          stagger: -4.4
+          spread: -cx + 0.6
+          rotate: 14
           key:
             column_net: P1
             column_mark: P
@@ -200,8 +200,8 @@ outlines:
       - type: circle
         anchor:
           ref: matrix_middle_bottom
-          shift: [-42.74, -351.32]
-        radius: 323.96
+          shift: [-42.42, -395.95]
+        radius: 368.6
       - type: outline
         name: bottom_arc_left_intersect
         operation: intersect
@@ -209,8 +209,8 @@ outlines:
       - type: circle
         anchor:
           ref: matrix_middle_bottom
-          shift: [-10.47, -169.37]
-        radius: 139.47
+          shift: [-13.3, -175.24]
+        radius: 145.98
       - type: outline
         name: bottom_arc_right_intersect
         operation: intersect
