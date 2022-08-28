@@ -253,7 +253,6 @@ outlines:
         operation: subtract
 pcbs:
   top_plate:
-    # include JLCJLCJLCJLC text somewhere
     include_keys: false
     outlines:
       edge:
@@ -280,13 +279,11 @@ pcbs:
       edge:
         outline: pcb
         layer: Edge.Cuts
-        # TODO there's a way to add stuff to the silkscreen layer
     footprints:
       mcu_l:
         type: promicro
         params:
           orientation: up
-          batteryPins: true
         anchor:
           ref:
             - matrix_inner_top
@@ -296,7 +293,6 @@ pcbs:
         type: promicro
         params:
           orientation: down
-          batteryPins: true
         anchor:
           ref:
             - matrix_inner_top
@@ -307,7 +303,7 @@ pcbs:
         anchor:
           ref:
             - matrix_inner_top
-          shift: [23, -18]
+          shift: [23, -6]
           rotate: 0
         params:
           front: true
@@ -316,13 +312,13 @@ pcbs:
           height: 1.5
           text: "B+"
         nets:
-          net: Braw
+          net: Bplus
       pad_minus:
         type: pad
         anchor:
           ref:
             - matrix_inner_top
-          shift: [23, -15]
+          shift: [23, -3]
           rotate: 0
         params:
           front: true
@@ -331,7 +327,7 @@ pcbs:
           height: 1.5
           text: "B-"
         nets:
-          net: Bminus
+          net: GND
       trrs_l:
         type: trrs
         anchor:
@@ -374,8 +370,8 @@ pcbs:
         params:
           side: B
         nets:
-          from: Braw
-          to: Bplus
+          from: Bplus
+          to: RAW
       jumper_r:
         type: jumper
         anchor:
@@ -386,8 +382,8 @@ pcbs:
         params:
           side: F
         nets:
-          from: Braw
-          to: Bplus
+          from: Bplus
+          to: RAW
       slider_l:
         type: slider
         anchor:
@@ -398,8 +394,9 @@ pcbs:
         params:
           side: F
         nets:
-          from: Braw
-          to: Bplus
+          from: RAW
+          left: Bplus
+          right: ''
       slider_r:
         type: slider
         anchor:
@@ -410,8 +407,9 @@ pcbs:
         params:
           side: B
         nets:
-          from: Braw
-          to: Bplus
+          from: RAW
+          left: ''
+          right: Bplus
       reset:
         type: button
         anchor:
