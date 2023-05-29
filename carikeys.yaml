@@ -32,6 +32,11 @@ points:
       #   rotate: 5
       key.padding: ky
       columns:
+        outer:
+          stagger: 0 ky
+          spread: kx
+          key:
+            column_net: P21
         pinky:
           stagger: 0 ky
           spread: kx
@@ -59,11 +64,15 @@ points:
             column_net: P14
       rows:
         bottom:
-          row_net: P6
+          row_net: P9
         home:
-          row_net: P5
+          row_net: P8
         top:
-          row_net: P4
+          row_net: P7
+        number:
+          row_net: P6
+        function:
+          row_net: P5
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -89,7 +98,7 @@ points:
             column_net: P14
       rows:
         thumb:
-          row_net: P7
+          row_net: P10
 outlines:
   # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
   exports:

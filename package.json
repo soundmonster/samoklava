@@ -1,8 +1,8 @@
 {
     "scripts": {
-        "gen": "ergogen samoklava.yaml"
+        "gen": "ergogen carikeys.yaml"
     },
     "dependencies": {
-        "ergogen": "github:soundmonster/ergogen#samoklava"
+        "ergogen": "github:soundmonster/ergogen#carikeys"
     }
 }
