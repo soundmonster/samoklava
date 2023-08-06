@@ -228,7 +228,7 @@ pcbs:
           shift: [-0.25 kx, 0.5 ky]
         params:
           text: "JLCJLCJLCJLC"
-          justif: left
+          justify: left
 #   bottom_plate:
 #     include_keys: false
 #     outlines:

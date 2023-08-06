@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "gen": "ergogen samoklava.yaml"
+    "gen": "ergogen ."
   },
   "dependencies": {
     "ergogen": "github:ergogen/ergogen#v4.0.4"

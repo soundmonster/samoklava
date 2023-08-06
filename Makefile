@@ -10,7 +10,7 @@ setup:
 	npm install
 
 # outputs from 
-output/pcbs/board.kicad_pcb output/pcbs/top_plate.kicad_pcb output/pcbs/bottom_plate.kicad_pcb &: samoklava.yaml
+output/pcbs/board.kicad_pcb output/pcbs/top_plate.kicad_pcb output/pcbs/bottom_plate.kicad_pcb &: config.yaml
 	npm run gen
 
 output/pcbs/%.dsn: output/pcbs/%.kicad_pcb
