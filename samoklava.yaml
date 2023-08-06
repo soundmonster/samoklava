@@ -211,23 +211,24 @@ outlines:
     - "base_outline"
     # TODO use footprints with pad + via reinforcement as mounting holes
     - "-mounting_holes"
-# pcbs:
-#   top_plate:
-#     include_keys: false
-#     outlines:
-#       edge:
-#         outline: plate
-#         layer: Edge.Cuts
-#     footprints:
-#       jlc_order_number:
-#         type: text
-#         anchor:
-#           ref:
-#             - matrix_ring_home
-#           shift: [-0.25 kx, 0.5 ky]
-#         params:
-#           text: "JLCJLCJLCJLC"
-#           justify: left
+pcbs:
+  top_plate:
+    # TODO find out how to exclude switch footprints from a PCB
+    # include_keys: false
+    outlines:
+      edge:
+        outline: plate
+        layer: Edge.Cuts
+    footprints:
+      jlc_order_number:
+        what: text
+        where:
+          ref:
+            - matrix_ring_home
+          shift: [-0.25 kx, 0.5 ky]
+        params:
+          text: "JLCJLCJLCJLC"
+          justif: left
 #   bottom_plate:
 #     include_keys: false
 #     outlines:
