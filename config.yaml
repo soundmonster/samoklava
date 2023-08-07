@@ -1,3 +1,9 @@
+meta:
+  engine: 4.0.4
+  name: samoklava
+  version: 0.3
+  author: soundmonnster
+  url: https://github.com/soundmonster/samoklava
 units:
   kx: cx
   ky: cy
@@ -13,15 +19,11 @@ points:
           reverse: true
           keycaps: true
         nets:
-          # from: P1
-          # to: P2
           from: =colrow
           to: =column_net
       diode:
         type: diode
         nets:
-          # from: P3
-          # to: P4
           from: =colrow
           to: =row_net
         anchor:
@@ -34,34 +36,34 @@ points:
           key:
             stagger: 0 ky
             spread: kx
-            column_net: P20
+            column_net: col_pinky
         ring:
           key:
             stagger: 0.7 ky
             spread: kx
-            column_net: P19
+            column_net: col_ring
         middle:
           key:
             stagger: 0.2 ky
             spread: kx
-            column_net: P18
+            column_net: col_middle
         index:
           key:
             stagger: -0.2 ky
             spread: kx
-            column_net: P15
+            column_net: col_index
         inner:
           key:
             stagger: -0.1 ky
             spread: kx
-            column_net: P14
+            column_net: col_inner
       rows:
         bottom:
-          row_net: P6
+          row_net: row_bottom
         home:
-          row_net: P5
+          row_net: row_home
         top:
-          row_net: P4
+          row_net: row_top
     thumbfan:
       anchor:
         ref: matrix_inner_bottom
@@ -72,22 +74,22 @@ points:
             spread: kx
             splay: -15
             origin: [-0.5 kx, -0.5 ky]
-            column_net: P18
+            column_net: col_middle
         home:
           key:
             spread: kx
             splay: -15
             origin: [-0.5 kx, -0.5 ky]
-            column_net: P15
+            column_net: col_index
         far:
           key:
             spread: kx
             splay: -15
             origin: [-0.5 kx, -0.5 ky]
-            column_net: P14
+            column_net: col_inner
       rows:
         thumb:
-          row_net: P7
+          row_net: row_thumb
 outlines:
   # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
   raw:
@@ -138,7 +140,7 @@ outlines:
       size: [32, 76.5]
       corner: px
   switches:
-    - what: rectangle 
+    - what: rectangle
       where: true
       asym: source
       size: 14
@@ -213,8 +215,6 @@ outlines:
     - "-mounting_holes"
 pcbs:
   top_plate:
-    # TODO find out how to exclude switch footprints from a PCB
-    # include_keys: false
     outlines:
       edge:
         outline: plate
@@ -229,82 +229,107 @@ pcbs:
         params:
           text: "JLCJLCJLCJLC"
           justify: left
-#   bottom_plate:
-#     include_keys: false
-#     outlines:
-#       edge:
-#         outline: bottom_outline
-#         layer: Edge.Cuts
-#   board:
-#     outlines:
-#       edge:
-#         outline: pcb
-#         layer: Edge.Cuts
-#     footprints:
-#       mcu_l:
-#         type: promicro
-#         params:
-#           orientation: up
-#         anchor:
-#           ref:
-#             - matrix_inner_top
-#           shift: [20, -11]
-#           rotate: 270
-#       mcu_r:
-#         type: promicro
-#         params:
-#           orientation: down
-#         anchor:
-#           ref:
-#             - matrix_inner_top
-#           shift: [22.5, -12.25]
-#           rotate: 270
-#       pad_plus:
-#         type: pad
-#         anchor:
-#           ref:
-#             - matrix_inner_top
-#           shift: [23, -6]
-#           rotate: 0
-#         params:
-#           front: true
-#           back: true
-#           width: 1.5
-#           height: 1.5
-#           text: "B+"
-#         nets:
-#           net: Bplus
-#       pad_minus:
-#         type: pad
-#         anchor:
-#           ref:
-#             - matrix_inner_top
-#           shift: [23, -3]
-#           rotate: 0
-#         params:
-#           front: true
-#           back: true
-#           width: 1.5
-#           height: 1.5
-#           text: "B-"
-#         nets:
-#           net: GND
-#       trrs_l:
-#         type: trrs
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [32, -15]
-#           rotate: 270
-#         params:
-#           reverse: false
-#           symmetric: false
-#         # The naming of the nets on this footprint is different from the Corne schematics.
-#         nets:
-#           A: ""
-#           B: VCC
-#           C: GND
-#           D: P0
+  bottom_plate:
+    outlines:
+      edge:
+        outline: bottom_outline
+        layer: Edge.Cuts
+  board:
+    outlines:
+      edge:
+        outline: pcb
+        layer: Edge.Cuts
+    footprints:
+      choc_hotswap:
+        what: choc
+        where:
+          - /matrix_.*/
+          - /thumbfan_.*/
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diode:
+        what: diode
+        where:
+          - /matrix_.*/
+          - /thumbfan_.*/
+        adjust.shift: [0, -5]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+      mcu_l:
+        what: promicro
+        where:
+          ref:
+            - matrix_inner_top
+          shift: [20, -11]
+          rotate: 270
+        params:
+          orientation: up
+          P4: row_top
+          P5: row_home
+          P6: row_bottom
+          P7: row_thumb
+          P14: col_inner
+          P15: col_index
+          P18: col_middle
+          P19: col_ring
+          P20: col_pinky
+      mcu_r:
+        what: promicro
+        where:
+          ref:
+            - matrix_inner_top
+          shift: [22.5, -12.25]
+          rotate: 270
+        params:
+          orientation: down
+      pad_plus:
+        what: pad
+        where:
+          ref:
+            - matrix_inner_top
+          shift: [23, -6]
+          rotate: 0
+        params:
+          front: true
+          back: true
+          width: 1.5
+          height: 1.5
+          text: "B+"
+          net: Bplus
+      pad_minus:
+        what: pad
+        where:
+          ref:
+            - matrix_inner_top
+          shift: [23, -3]
+          rotate: 0
+        params:
+          front: true
+          back: true
+          width: 1.5
+          height: 1.5
+          text: "B-"
+          net: GND
+      trrs_l:
+        what: trrs
+        where:
+          ref:
+            - matrix_inner_bottom
+          shift: [32, -15]
+          rotate: 270
+        params:
+          reverse: true
+          symmetric: false
+          # The naming of the nets on this footprint is different from the Corne schematics.
+          A: ""
+          B: VCC
+          C: GND
+          D: P0
 #       trrs_r:
 #         type: trrs
 #         anchor:
