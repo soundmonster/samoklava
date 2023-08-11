@@ -315,8 +315,8 @@ pcbs:
           height: 1.5
           text: "B-"
           net: GND
-      trrs_l:
-        what: trrs
+      trrs:
+        what: trrs_tight
         where:
           ref:
             - matrix_inner_bottom
@@ -330,101 +330,79 @@ pcbs:
           B: VCC
           C: GND
           D: P0
-#       trrs_r:
-#         type: trrs
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [32, -13]
-#           rotate: 270
-#         params:
-#           reverse: true
-#           symmetric: false
-#         # The naming of the nets on this footprint is different from the Corne schematics.
-#         nets:
-#           A: ""
-#           B: VCC
-#           C: GND
-#           D: P0
-#       jumper_l:
-#         type: jumper
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [23.5, 0]
-#           rotate: 270
-#         params:
-#           side: B
-#         nets:
-#           from: Bplus
-#           to: RAW
-#       jumper_r:
-#         type: jumper
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [23.5, 0]
-#           rotate: 270
-#         params:
-#           side: F
-#         nets:
-#           from: Bplus
-#           to: RAW
-#       slider_l:
-#         type: slider
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [30, 0]
-#           rotate: 270
-#         params:
-#           side: F
-#         nets:
-#           from: RAW
-#           left: Bplus
-#           right: ''
-#       slider_r:
-#         type: slider
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [30, 0]
-#           rotate: 270
-#         params:
-#           side: B
-#         nets:
-#           from: RAW
-#           left: ''
-#           right: Bplus
-#       reset:
-#         type: button
-#         anchor:
-#           ref:
-#             - matrix_inner_bottom
-#           shift: [17, 0]
-#           rotate: 270
-#         params:
-#           variant: 2_pin_th
-#         nets:
-#           from: GND
-#           to: RST
-#       info_l:
-#         type: text
-#         anchor:
-#           ref:
-#             - matrix_pinky_bottom
-#           shift: [0.75 kx, 0]
-#         params:
-#           text: "samoklava v0.1\\nby soundmonster"
-#           justify: left
-#       info_r:
-#         type: text
-#         anchor:
-#           ref:
-#             - matrix_pinky_bottom
-#           shift: [0.75 kx, 0]
-#         params:
-#           layer: B.SilkS
-#           text: "samoklava v0.1\\nby soundmonster"
-#           justify: right mirror
-#
+      jumper_l:
+        what: jumper
+        where:
+          ref:
+            - matrix_inner_bottom
+          shift: [23.5, 0]
+          rotate: 270
+        params:
+          side: B
+          from: Bplus
+          to: RAW
+      jumper_r:
+        what: jumper
+        where:
+          ref:
+            - matrix_inner_bottom
+          shift: [23.5, 0]
+          rotate: 270
+        params:
+          side: F
+          from: Bplus
+          to: RAW
+      slider_l:
+        what: slider_threeway
+        where:
+          ref:
+            - matrix_inner_bottom
+          shift: [30, 0]
+          rotate: 270
+        params:
+          side: F
+          from: RAW
+          left: Bplus
+          right: ''
+      slider_r:
+        what: slider_threeway
+        where:
+          ref:
+            - matrix_inner_bottom
+          shift: [30, 0]
+          rotate: 270
+        params:
+          side: B
+          from: RAW
+          left: ''
+          right: Bplus
+      reset:
+        what: reset_button
+        where:
+          ref:
+            - matrix_inner_bottom
+          shift: [17, 0]
+          rotate: 270
+        params:
+          from: GND
+          to: RST
+      info_l:
+        what: text
+        where:
+          ref:
+            - matrix_pinky_bottom
+          shift: [0.75 kx, 0]
+        params:
+          text: "samoklava v0.3\\nby soundmonster"
+          justify: left
+      info_r:
+        what: text
+        where:
+          ref:
+            - matrix_pinky_bottom
+          shift: [0.75 kx, 0]
+        params:
+          layer: B.SilkS
+          text: "samoklava v0.3\\nby soundmonster"
+          justify: right mirror
+
