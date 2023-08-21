@@ -1,8 +1,8 @@
 {
-    "scripts": {
-        "gen": "ergogen samoklava.yaml"
-    },
-    "dependencies": {
-        "ergogen": "github:soundmonster/ergogen#samoklava"
-    }
+  "scripts": {
+    "gen": "ergogen -d ."
+  },
+  "dependencies": {
+    "ergogen": "github:ergogen/ergogen#v4.0.4"
+  }
 }
