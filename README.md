@@ -19,7 +19,7 @@ A 5x3 split keyboard with 3 thumb keys. There is nothing unique about the keyboa
 Kyria, and has the exact number of keys needed for the [Miryoku](https://github.com/manna-harbour/miryoku) layout.
 
 The interesting thing about this keyboard is that it's a declarative design:
-* Layout is declared using [Ergogen](https://github.com/mrzealot/ergogen/). See [this fork](https://github.com/soundmonster/ergogen).
+* Layout is declared using [Ergogen](https://github.com/mrzealot/ergogen/). New: no fork needed!
 * The build system uses Ergogen to translate YAML to a KiCad PCB and plate files for FR-4 fab or laser cutting
 * uses [kicad-automation-scripts](https://github.com/productize/kicad-automation-scripts) and [FreeRouting](https://github.com/freerouting/freerouting) to **automatically route the traces on the PCB**
 * uses [KiKit](https://github.com/yaqwsx/KiKit) to render PCB previews (see top of this file) and production-ready **Gerber files**
