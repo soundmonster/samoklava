@@ -1,408 +1,208 @@
-meta:
-  engine: 4.0.4
-  name: samoklava
-  version: 0.3
-  author: soundmonnster
-  url: https://github.com/soundmonster/samoklava
+# `U` is a predefined unit of measure that means 19.05mm, which is MX spacing
 units:
-  kx: cx
-  ky: cy
-  px: 2
-  py: 2
+  # Proxy Spacing Variables for easy changing to choc/mx
+  kx: u
+  ky: u
+  # Padding Variables
+  px: kx + 2
+  py: ky + 2
+  center_x: 112.65
+  center_y: -127
 points:
-  key:
-    footprints:
-      choc_hotswap:
-        type: choc
-        params:
-          hotswap: true
-          reverse: true
-          keycaps: true
-        nets:
-          from: =colrow
-          to: =column_net
-      diode:
-        type: diode
-        nets:
-          from: =colrow
-          to: =row_net
-        anchor:
-          shift: [0, -5]
   zones:
     matrix:
-      key.padding: ky
+      # Fix placement on KiCAD sheet.
+      anchor.shift: [100, -100]
+      key:
+        padding: 1ky
+        spread: 1kx
+      rotate: -15
       columns:
         pinky:
-          key:
-            stagger: 0 ky
-            spread: kx
-            column_net: col_pinky
-        ring:
-          key:
-            stagger: 0.7 ky
-            spread: kx
-            column_net: col_ring
-        middle:
-          key:
-            stagger: 0.2 ky
-            spread: kx
-            column_net: col_middle
-        index:
-          key:
-            stagger: -0.2 ky
-            spread: kx
-            column_net: col_index
+          rows.bottom:
+            rotate: 90
+          rows.home:
+            rotate: -90
+            shift: [1kx, -1kx]
+        ring.key:
+          stagger: 0.25kx
+        middle.key.stagger: 0.25kx
+        index.key.stagger: -0.25kx
         inner:
-          key:
-            stagger: -0.1 ky
-            spread: kx
-            column_net: col_inner
+          key.stagger: -0.15kx
+          rows.top.rotate: 90
       rows:
-        bottom:
-          row_net: row_bottom
-        home:
-          row_net: row_home
-        top:
-          row_net: row_top
-    thumbfan:
+        bottom.padding: kx
+        home.padding: kx
+        top.padding: kx
+    thumb:
       anchor:
-        ref: matrix_inner_bottom
-        shift: [-0.5 kx, -1 ky]
+        ref: matrix_index_bottom
+        shift: [0.6kx, -1.2kx]
+        rotate: -10
       columns:
-        near:
-          key:
-            spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
-            column_net: col_middle
-        home:
-          key:
-            spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
-            column_net: col_index
-        far:
-          key:
-            spread: kx
-            splay: -15
-            origin: [-0.5 kx, -0.5 ky]
-            column_net: col_inner
+        tucky:
+          key.name: thumb_tucky
+        reachy:
+          key.spread: kx
+          key.splay: -14
+          key.stagger: 3
+          key.origin: [-0.5kx, -0.5kx]
+          key.shift: [1, 0]
+          key.rotate: 90
+          key.width: 1.5kx
+          key.name: thumb_reachy
+    helper:
+      key.skip: true
+      anchor.shift: [100 - 1.25kx, -100 -3.25kx]
+      columns:
+        pinky:
+        ring:
+        middle:
+        index:
+        inner:
       rows:
         thumb:
-          row_net: row_thumb
+        bottom:
+          shift: [0, kx]
+        home:
+        top:
 outlines:
-  # board dimensions according to JLCPCB: 122.28 mm x 101.05 mm
-  raw:
+  thumb:
+    - what: rectangle
+      where: thumb_reachy
+      bound: true
+      size: [1.5kx, ky]
+  keys:
     - what: rectangle
       where: true
-      asym: source
-      size: [kx + px, ky + py]
-      corner: px
-  thumbfan_glue:
-    - what: polygon
-      points:
-        - ref: matrix_inner_bottom
-          shift: [0.5 kx + 0.5px, -0.5 ky + 0.5 py]
-        - ref: thumbfan_far_thumb
-          shift: [0.5 kx - 0.5px, 0.5 ky + 0.5 py]
-        - ref: thumbfan_far_thumb
-          shift: [0.5 kx - 0.5px, -0.5 ky - 0.5 py]
-        - ref: thumbfan_near_thumb
-          shift: [-0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_bottom
-          shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_home
-        - ref: matrix_inner_home
-  patch_outer:
-    - what: polygon
-      points:
-        - ref: matrix_ring_top
-        - ref: matrix_ring_bottom
-        - ref: matrix_pinky_bottom
-          shift: [-0.5 (kx + px), 0]
-        - ref: matrix_pinky_top
-          shift: [-0.5 (kx + px), 0]
-  patch_inner:
-    - what: polygon
-      points:
-        - ref: matrix_inner_top
-          shift: [0.5 (kx + px), 0]
-        - ref: matrix_inner_bottom
-          shift: [0.5 (kx + px), 0]
-        - ref: matrix_index_bottom
-        - ref: matrix_index_top
-  controller_area:
+      size: [kx, kx]
+  limits:
     - what: rectangle
-      where:
-        - ref: matrix_inner_top
-          # re-tranalte to new anchor position
-          shift: [32/2 + 0 kx, 76.5/2 - 4.05 ky]
-      size: [32, 76.5]
-      corner: px
-  switches:
-    - what: rectangle
-      where: true
-      asym: source
-      size: 14
-  keycaps:
-    - what: rectangle 
-      where: true
-      asym: source
-      size: [kx, ky] 
-      corner: 1
-  keywell:
-    - "raw"
-    - "+patch_inner"
-    - "+patch_outer"
-    - "+thumbfan_glue"
-  base_outline:
-    - "keywell"
-    - "+controller_area"
-  screw_holes:
-    top_left:
-      what: circle
-      where:
-        - ref: matrix_ring_home
-          shift: [-0.5 kx, 0 ky]
-      radius: 1.05
-    bottom_left:
-      what: circle
-      where:
-        - ref: matrix_pinky_bottom
-          shift: [0.5 kx, 0]
-      radius: 1.05
-    top_right:
-      what: circle
-      where:
-        - ref: matrix_inner_top
-          shift: [-0.5 kx, 0]
-      radius: 1.05
-    palm:
-      what: circle
-      where:
-        - ref: matrix_index_bottom
-          shift: [0, -1.06 ky]
-      radius: 1.05
-    thumb:
-      what: circle
-      where:
-        - ref: thumbfan_far_thumb
-          shift: [-0.55 kx, 0]
-      radius: 1.05
-  mounting_holes:
-    $extends: outlines.screw_holes
-    top_left:
-      radius: 2.05
-    bottom_left:
-      radius: 2.05
-    top_right:
-      radius: 2.05
-    palm:
-      radius: 2.05
-    thumb:
-      radius: 2.05
-  bottom_outline:
-    - "base_outline"
-    # TODO use footprints with pad + via reinforcement as mounting holes
-    - "-screw_holes"
-  plate:
-    - "keywell"
-    - "-switches"
-    - "-screw_holes"
-  pcb:
-    - "base_outline"
-    # TODO use footprints with pad + via reinforcement as mounting holes
-    - "-mounting_holes"
+      size: [100, 100]
+      adjust.shift: [center_x, center_y]
+  combo:
+    - name: limits
+    - operation: stack
+      name: keys
+    - operation: stack
+      name: thumb
+  pcb_outline:
+    - what: polygon
+      points:
+        - shift: [center_x-50, center_y+50]
+        - shift: [100, 0]
+        - shift: [0, -100]
+        - shift: [-40, 0]
+        - shift: [-15, 15]
+        - shift: [-45, 0]
+      fillet: 2
+  pcb_outline_combo:
+    - name: pcb_outline
+    - operation: stack
+      name: keys
+    - operation: stack
+      name: limits
+  case_outline:
+    - what: polygon
+      points:
+        - shift: [center_x-57, center_y+56]
+        - shift: [115, 0]
+        - shift: [0, -115]
+        - shift: [-40, 0]
+        - shift: [-23.5, 23.5]
+        - shift: [-51.5, 0]
+      fillet: 2
+  case_outline_combo:
+    - name: case_outline
+    - operation: stack
+      name: pcb_outline
+    - operation: stack
+      name: keys
+    - operation: stack
+      name: thumb
 pcbs:
-  top_plate:
-    outlines:
-      edge:
-        outline: plate
-        layer: Edge.Cuts
+  simple_split:
+    outlines.edge:
+      outline: pcb_outline
+      layer: Edge.Cuts
     footprints:
-      jlc_order_number:
-        what: text
-        where:
-          ref:
-            - matrix_ring_home
-          shift: [-0.25 kx, 0.5 ky]
+      keys:
+        what: key-switches
+        where: true
         params:
-          text: "JLCJLCJLCJLC"
-          justify: left
-  bottom_plate:
-    outlines:
-      edge:
-        outline: bottom_outline
-        layer: Edge.Cuts
-  board:
-    outlines:
-      edge:
-        outline: pcb
-        layer: Edge.Cuts
-    footprints:
-      choc_hotswap:
-        what: choc
-        where:
-          - /matrix_.*/
-          - /thumbfan_.*/
-        params:
-          hotswap: true
-          reverse: true
+          from: "{{name}}"
+          to: GND
+          mx: true
+          mx_hotswap: true
+          mx_reverse: true
+          mx_pth: true
+          choc: true
+          choc_hotswap: true
+          choc_reverse: true
+          choc_pth: true
           keycaps: true
-          from: "{{colrow}}"
-          to: "{{column_net}}"
-      diode:
-        what: diode
+      mcu:
+        what: promicro-pretty
         where:
-          - /matrix_.*/
-          - /thumbfan_.*/
-        adjust.shift: [0, -5]
+          - shift: [center_x - 34.8, center_y - 25]
         params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
-      mcu_l:
-        what: promicro
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [20, -11]
-          rotate: 270
-        params:
-          orientation: up
-          P4: row_top
-          P5: row_home
-          P6: row_bottom
-          P7: row_thumb
-          P14: col_inner
-          P15: col_index
-          P18: col_middle
-          P19: col_ring
-          P20: col_pinky
-      mcu_r:
-        what: promicro
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [22.5, -12.25]
-          rotate: 270
-        params:
-          orientation: down
-      pad_plus:
-        what: pad
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [23, -6]
-          rotate: 0
-        params:
-          front: true
-          back: true
-          width: 1.5
-          height: 1.5
-          text: "B+"
-          net: Bplus
-      pad_minus:
-        what: pad
-        where:
-          ref:
-            - matrix_inner_top
-          shift: [23, -3]
-          rotate: 0
-        params:
-          front: true
-          back: true
-          width: 1.5
-          height: 1.5
-          text: "B-"
-          net: GND
+          P7: matrix_pinky_top
+          P18: matrix_ring_top
+          P19: matrix_middle_top
+          P20: matrix_index_top
+          P21: matrix_inner_top
+          P15: matrix_pinky_home
+          P14: matrix_ring_home
+          P16: matrix_middle_home
+          P10: matrix_index_home
+          P1: matrix_inner_home
+          P2: matrix_pinky_bottom
+          P3: matrix_ring_bottom
+          P4: matrix_middle_bottom
+          P5: matrix_index_bottom
+          P6: matrix_inner_bottom
+          P8: thumb_tucky
+          P9: thumb_reachy
+          P0: Switch18
       trrs:
-        what: trrs_tight
+        what: trrs
         where:
-          ref:
-            - matrix_inner_bottom
-          shift: [32, -15]
-          rotate: 270
+          - shift: [center_x + 48, center_y + 51.7]
         params:
           reverse: true
-          symmetric: false
-          # The naming of the nets on this footprint is different from the Corne schematics.
-          A: ""
-          B: VCC
-          C: GND
-          D: P0
-      jumper_l:
-        what: jumper
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: B
-          from: Bplus
-          to: RAW
-      jumper_r:
-        what: jumper
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [23.5, 0]
-          rotate: 270
-        params:
-          side: F
-          from: Bplus
-          to: RAW
-      slider_l:
-        what: slider_threeway
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, 0]
-          rotate: 270
-        params:
-          side: F
-          from: RAW
-          left: Bplus
-          right: ''
-      slider_r:
-        what: slider_threeway
-        where:
-          ref:
-            - matrix_inner_bottom
-          shift: [30, 0]
-          rotate: 270
-        params:
-          side: B
-          from: RAW
-          left: ''
-          right: Bplus
+          symmetric: true
+          A: GND
+          B: GND
+          C: Switch18
+          D: VCC
       reset:
         what: reset_button
         where:
-          ref:
-            - matrix_inner_bottom
-          shift: [17, 0]
-          rotate: 270
+          shift: [center_x - 4, center_y - 26]
+          rotate: -90
         params:
           from: GND
           to: RST
-      info_l:
-        what: text
+      reset2:
+        what: b3u1000p
         where:
-          ref:
-            - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+          shift: [center_x - 4, center_y - 26]
+          rotate: -90
         params:
-          text: "samoklava v0.3\\nby soundmonster"
-          justify: left
-      info_r:
-        what: text
+          r1: 'GND'
+          r2: 'RST'
+      slider:
+        what: slider_threeway
         where:
-          ref:
-            - matrix_pinky_bottom
-          shift: [0.75 kx, 0]
+          shift: [center_x - 11, center_y - 33.5]
+          rotate: 180
         params:
-          layer: B.SilkS
-          text: "samoklava v0.3\\nby soundmonster"
-          justify: right mirror
-
+          from: RAW
+          left: Bplus
+          right: ''
+          reversible: true
+      jst:
+        what: jstph_reversible
+        where:
+          shift: [center_x-11, center_y-17]
