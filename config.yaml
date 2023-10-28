@@ -8,6 +8,27 @@ units:
   py: ky + 2
   center_x: 112.65
   center_y: -127
+  # Defaults to M2 Screws
+  screwSize: 1.5
+  standoffSize: 2.5
+  # 65.9, 81
+  mounting_1_x: center_x-46.75
+  mounting_1_y: center_y+46 
+  # 146.65, 81
+  mounting_2_x: center_x+34 
+  mounting_2_y: center_y+46 
+  # 158.5, 146 mm
+  mounting_3_x: center_x+45.85
+  mounting_3_y: center_y-19
+  # 125.65, 172
+  mounting_4_x: center_x+13
+  mounting_4_y: center_y-45 
+  # 102.65, 142
+  mounting_5_x: center_x-10
+  mounting_5_y: center_y-15 
+  # 65.9, 138
+  mounting_6_x: center_x-46.75
+  mounting_6_y: center_y-11.0 
 points:
   zones:
     matrix:
@@ -113,14 +134,101 @@ outlines:
         - shift: [-23.5, 23.5]
         - shift: [-51.5, 0]
       fillet: 2
+  case_outline_xl:
+    - what: polygon
+      points:
+        - shift: [center_x-59, center_y+58]
+        - shift: [119, 0]
+        - shift: [0, -119]
+        - shift: [-43, 0]
+        - shift: [-23.5, 23.5]
+        - shift: [-52.5, 0]
+      fillet: 2
+  mounting:
+    - what: circle
+      where.shift: [mounting_1_x, mounting_1_y]
+      radius: screwSize
+    - what: circle
+      where.shift: [mounting_2_x, mounting_2_y]
+      radius: screwSize
+    - what: circle
+      where.shift: [mounting_3_x, mounting_3_y]
+      radius: screwSize
+    - what: circle
+      where.shift: [mounting_4_x, mounting_4_y]
+      radius: screwSize
+    - what: circle
+      where.shift: [mounting_5_x, mounting_5_y]
+      radius: screwSize
+    - what: circle
+      where.shift: [mounting_6_x, mounting_6_y]
+      radius: screwSize
+  standoff:
+    - what: circle
+      where.shift: [mounting_1_x, mounting_1_y]
+      radius: standoffSize
+    - what: circle
+      where.shift: [mounting_2_x, mounting_2_y]
+      radius: standoffSize
+    - what: circle
+      where.shift: [mounting_3_x, mounting_3_y]
+      radius: standoffSize
+    - what: circle
+      where.shift: [mounting_4_x, mounting_4_y]
+      radius: standoffSize
+    - what: circle
+      where.shift: [mounting_5_x, mounting_5_y]
+      radius: standoffSize
+    - what: circle
+      where.shift: [mounting_6_x, mounting_6_y]
+      radius: standoffSize
   case_outline_combo:
     - name: case_outline
-    - operation: stack
-      name: pcb_outline
-    - operation: stack
-      name: keys
-    - operation: stack
-      name: thumb
+    - ^case_outline_xl
+    - ^pcb_outline
+    - ^keys
+    - ^thumb
+    - ^mounting
+    - ^standoff
+cases:
+  bottom:
+    - name: case_outline
+      extrude: 1
+  xlBottom:
+    - name: case_outline_xl
+      extrude: 1
+  _outerWall:
+    - name: case_outline_xl
+      extrude: 5.6
+  _innerWall:
+    - name: case_outline
+      extrude: 5.6
+  wall:
+    - what: case
+      name: _outerWall
+      operation: add
+    - what: case
+      name: _innerWall
+      operation: subtract
+  _holes:
+    - name: mounting
+      extrude: 4
+  _standoffs:
+    - name: standoff
+      extrude: 4
+  case:
+    - what: case
+      name: _standoffs
+      operation: add
+    - what: case
+      name: _holes
+      operation: subtract
+    - what: case
+      name: xlBottom
+      operation: add
+    - what: case
+      name: wall
+      operation: add
 pcbs:
   board:
     outlines.edge:
@@ -206,7 +314,26 @@ pcbs:
       jst:
         what: jstph_reversible
         where:
-          shift: [center_x-11, center_y-17]
+          shift: [center_x-11, center_y-28.5]
+          rotate: 180
         params:
           pos: Bplus
           neg: GND
+      mounting_hole_1:
+        what: mountinghole
+        where.shift: [mounting_1_x, mounting_1_y]
+      mounting_hole_2:
+        what: mountinghole
+        where.shift: [mounting_2_x, mounting_2_y]
+      mounting_hole_3:
+        what: mountinghole
+        where.shift: [mounting_3_x, mounting_3_y]
+      mounting_hole_4:
+        what: mountinghole
+        where.shift: [mounting_4_x, mounting_4_y]
+      mounting_hole_5:
+        what: mountinghole
+        where.shift: [mounting_5_x, mounting_5_y]
+      mounting_hole_6:
+        what: mountinghole
+        where.shift: [mounting_6_x, mounting_6_y]
