@@ -122,7 +122,7 @@ outlines:
     - operation: stack
       name: thumb
 pcbs:
-  simple_split:
+  board:
     outlines.edge:
       outline: pcb_outline
       layer: Edge.Cuts
