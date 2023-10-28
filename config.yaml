@@ -190,6 +190,55 @@ outlines:
     - ^thumb
     - ^mounting
     - ^standoff
+  plate:
+    - what: polygon
+      where: true
+      points:
+        - shift: [-6.005, 7.8]
+        - shift: [3.5, 0]
+        - shift: [0, -0.815]
+        - shift: [5.01, 0]
+        - shift: [0, 0.815]
+        - shift: [3.5, 0]
+        - shift: [0, -0.815]
+        - shift: [0.98, 0]
+        - shift: [0, -0.98]
+        - shift: [0.815, 0]
+        - shift: [0, -3.5]
+        - shift: [-0.815, 0]
+        - shift: [0, -5.01]
+        - shift: [0.815, 0]
+        - shift: [0, -3.5]
+        - shift: [-0.815, 0]
+        - shift: [0, -0.98]
+        - shift: [-0.98, 0]
+        - shift: [0, -0.815]
+        - shift: [-3.5, 0]
+        - shift: [0, 0.815]
+        - shift: [-5.01, 0]
+        - shift: [0, -0.815]
+        - shift: [-3.5, 0]
+        - shift: [0, 0.815]
+        - shift: [-0.98, 0]
+        - shift: [0, 0.98]
+        - shift: [-0.815, 0]
+        - shift: [0, 3.5]
+        - shift: [0.815, 0]
+        - shift: [0, 5.01]
+        - shift: [-0.815, 0]
+        - shift: [0, 3.5]
+        - shift: [0.815, 0]
+        - shift: [0, 0.98]
+        - shift: [0.98, 0]
+  plate_supports:
+    - what: rectangle
+      where: true
+      size: [15, 15]
+  plate_view:
+    - name: plate
+    - ^plate_supports
+    - ^case_outline
+    - ^standoff
 cases:
   bottom:
     - name: case_outline
