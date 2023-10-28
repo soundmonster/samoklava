@@ -253,7 +253,7 @@ module.exports = {
       return `
 
       (pad ${pad_number} thru_hole circle (at ${x_val} ${pos_val}0.762 ${p.rot + 180}) (size 0.8 0.8) (drill 0.4) (layers *.Cu) ${net_str})
-      (pad ${pad_number} smd custom (at ${x_val} 4.826 ${p.rot + 180}) (size 1.2 0.5) (layers ${_layers[0]}.Cu ${_layers[0]}.Mask) ${net_str}
+      (pad ${pad_number} smd custom (at ${x_val} 4.826 ${p.rot + 180}) (size 1.2 0.5) (layers ${_layers[1]}.Cu ${_layers[1]}.Mask) ${net_str}
         (clearance 0.1) (zone_connect 0)
         (options (clearance outline) (anchor rect))
         (primitives
@@ -261,7 +261,7 @@ module.exports = {
             (xy 0.6 0) (xy -0.6 0) (xy -0.6 -1) (xy 0 -0.4) (xy 0.6 -1)
       ) (width 0))
           ))
-      (pad ${pad_number} smd custom (at ${x_val} -4.826 ${p.rot}) (size 1.2 0.5) (layers ${_layers[1]}.Cu ${_layers[1]}.Mask) ${net_str}
+      (pad ${pad_number} smd custom (at ${x_val} -4.826 ${p.rot}) (size 1.2 0.5) (layers ${_layers[0]}.Cu ${_layers[0]}.Mask) ${net_str}
         (clearance 0.1) (zone_connect 0)
         (options (clearance outline) (anchor rect))
         (primitives

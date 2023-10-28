@@ -165,6 +165,7 @@ pcbs:
           P8: thumb_tucky
           P9: thumb_reachy
           P0: Switch18
+          RAW: RAW
       trrs:
         what: trrs
         where:
@@ -190,19 +191,22 @@ pcbs:
           shift: [center_x - 4, center_y - 26]
           rotate: -90
         params:
-          r1: 'GND'
-          r2: 'RST'
+          r1: GND
+          r2: RST
       slider:
         what: slider_threeway
         where:
           shift: [center_x - 11, center_y - 33.5]
           rotate: 180
         params:
-          from: RAW
-          left: Bplus
+          from: Bplus
+          left: RAW
           right: ''
           reversible: true
       jst:
         what: jstph_reversible
         where:
           shift: [center_x-11, center_y-17]
+        params:
+          pos: Bplus
+          neg: GND
