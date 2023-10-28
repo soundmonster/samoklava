@@ -142,7 +142,7 @@ module.exports = {
                 (pad 1 thru_hole circle (at 0 -5.95) (size 3.6 3.6) (drill 3) (layers *.Cu *.Mask)  ${p.from.str})
             
                 ${'' /* net pads */}
-                (pad 1 smd rect (at ${def_neg}3.275 -5.95 ${p.rot}) (size 2 2) (layers ${def_side}.Cu ${def_side}.Paste ${def_side}.Mask)  ${p.from.str})
+                (pad 1 smd rect (at ${def_neg}2.8 -5.95 ${p.rot}) (size 1.7 1.8) (layers ${def_side}.Cu ${def_side}.Paste ${def_side}.Mask)  ${p.from.str})
                 (pad 2 smd rect (at ${def_pos}8.275 -3.75 ${p.rot}) (size 2 2) (layers ${def_side}.Cu ${def_side}.Paste ${def_side}.Mask)  ${p.to.str})
                 ${'' /* net pads to connect to holes */}
                 (pad 1 smd rect (at ${def_neg}2 -5.95  ${p.rot}) (size 2 1) (layers ${def_side}.Cu ${def_side}.Paste ${def_side}.Mask) ${p.from.str})
