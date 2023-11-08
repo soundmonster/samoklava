@@ -26,7 +26,7 @@ The interesting thing about this keyboard is that it's a declarative design:
 
 ## Features
 
-* Extra pins and a slider switch for battery for wireless Promicro clones (tested with nice!nano); the slider can be
+* A slider switch for battery for wireless Promicro clones (tested with nice!nano); the slider can be
   shorted with a jumper if `CONFIG_ZMK_SLEEP` is preferred.
 * Wired operation with QMK should be possible but is not tested; TRRS footprints are included and routed. The pinout is
   identical with a five-column Corne sans the RGBLEDs.
