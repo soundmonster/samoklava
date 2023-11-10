@@ -4,8 +4,8 @@ units:
   kx: u
   ky: u
   # Padding Variables
-  px: kx + 2
-  py: ky + 2
+  px: kx + 1
+  py: ky + 1
   center_x: 112.65
   center_y: -127
   # Defaults to M2 Screws
@@ -73,31 +73,51 @@ points:
           key.rotate: 90
           key.width: 1.5kx
           key.name: thumb_reachy
-    helper:
-      key.skip: true
-      anchor.shift: [100 - 1.25kx, -100 -3.25kx]
-      columns:
-        pinky:
-        ring:
-        middle:
-        index:
-        inner:
-      rows:
-        thumb:
-        bottom:
-          shift: [0, kx]
-        home:
-        top:
 outlines:
   thumb:
     - what: rectangle
       where: thumb_reachy
       bound: true
       size: [1.5kx, ky]
+  padded_thumb:
+    - what: rectangle
+      where: thumb_reachy
+      bound: true
+      size: [1.5px, py]
   keys:
     - what: rectangle
       where: true
-      size: [kx, kx]
+      size: [kx, ky]
+  padded_keys:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  key_outline:
+    - name: keys
+    - +thumb
+  expanded_key_outline:
+    - name: padded_keys
+    - +padded_thumb
+  remove_keys_island:
+    - what: polygon
+      points:
+      - ref: thumb_tucky
+        shift: [-.5px, .5px]
+      - ref: thumb_tucky
+        shift: [-.5px, .8px]
+      - ref: matrix_inner_bottom
+        shift: [.5px, -.25px]
+      - ref: thumb_reachy
+        shift: [0.75px, 0.5px]
+      - ref: thumb_reachy
+        shift: [0.75px, 0.4px]
+      - ref: thumb_reachy
+        shift: [-0.75px, 0.4px]
+      - ref: thumb_reachy
+        shift: [-0.75px, 0.5px]
+  expanded_keys_bounded:
+    - name: expanded_key_outline
+    - +remove_keys_island
   limits:
     - what: rectangle
       size: [100, 100]
@@ -182,14 +202,18 @@ outlines:
     - what: circle
       where.shift: [mounting_6_x, mounting_6_y]
       radius: standoffSize
-  case_outline_combo:
-    - name: case_outline
-    - ^case_outline_xl
-    - ^pcb_outline
-    - ^keys
-    - ^thumb
-    - ^mounting
-    - ^standoff
+  control_area:
+    - what: polygon
+      points:
+        - shift: [center_x-57, center_y-15.5]
+        - shift: [40, 0]
+        - shift: [7, -7]
+        - shift: [10.5, 0]
+        - shift: [0, -19]
+        - shift: [-6, 6]
+        - shift: [-51.5, 0]
+        #- shift: [0, 20]
+      fillet: 1.99
   plate:
     - what: polygon
       where: true
@@ -234,24 +258,50 @@ outlines:
     - what: rectangle
       where: true
       size: [15, 15]
-  plate_view:
+  
+  case_outline_bottom:
+    - name: case_outline
+    - ^case_outline_xl
+    - ^mounting
+    - ^standoff
+  case_outline_top:
+    - name: case_outline
+    - ^case_outline_xl
+    # - ^pcb_outline
+    - ^expanded_keys_bounded
+    - ^mounting
+    - ^standoff
+    - ^control_area
+  plate_combo:
     - name: plate
-    - ^plate_supports
     - ^case_outline
     - ^standoff
+    - -control_area
+    - ^expanded_key_outline
+  plate_combo_nokeys:
+    - name: plate
+    - ^case_outline
+    - ^standoff
+    - -control_area
+  plate_supports_combo:
+    - name: plate_supports
+    - ^case_outline
+    - -standoff
+    - -control_area
 cases:
-  bottom:
+  outline:
     - name: case_outline
       extrude: 1
-  xlBottom:
+  xl_outline:
     - name: case_outline_xl
       extrude: 1
+  # assuming 0.6mm pcb, this goes to half a pcb
   _outerWall:
     - name: case_outline_xl
-      extrude: 5.6
+      extrude: 5.3
   _innerWall:
     - name: case_outline
-      extrude: 5.6
+      extrude: 5.3
   wall:
     - what: case
       name: _outerWall
@@ -265,7 +315,7 @@ cases:
   _standoffs:
     - name: standoff
       extrude: 4
-  case:
+  bottom_case:
     - what: case
       name: _standoffs
       operation: add
@@ -273,7 +323,7 @@ cases:
       name: _holes
       operation: subtract
     - what: case
-      name: xlBottom
+      name: xl_outline
       operation: add
     - what: case
       name: wall
