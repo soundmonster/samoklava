@@ -36,7 +36,7 @@ The interesting thing about this keyboard is that it's a declarative design:
 
 If you would like to modify this:
 * fork it
-* change `samoklava.yaml` to your liking
+* change `config.yaml` to your liking
 * push your changes; the `build.yml` GitHub Workflow will pick it up, autoroute and generate Gerbers, all in a zip file.
   See https://github.com/soundmonster/samoklava/actions
 * or:
