@@ -6,6 +6,7 @@ module.exports = {
     },
     params: {
         class: 'HOLE',
+        class: 'HOLE',
     },
     body: p => `
     (module "MountingHole_2.2mm_M2_Pad_Via" (version 20210722) (generator pcbnew) (layer "F.Cu")

@@ -1,5 +1,6 @@
 module.exports = {
     params: {
+        designator: 'S', // for switch
         r1: {type: 'net', value: 'GND'},
         r2: {type: 'net', value: 'RST'},
         class: 'S', 

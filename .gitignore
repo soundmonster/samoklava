@@ -5,4 +5,5 @@ other_pcbs
 routed_pcb/*-backups
 routed_pcb/fp-info-cache
 routed_pcb/gerbers*
-routed_pcb/*.kicad*
+routed_pcb/*.kicad
+$

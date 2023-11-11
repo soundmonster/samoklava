@@ -1,5 +1,6 @@
 module.exports = {
     params: {
+        designator: 'JST',
         class: 'JST',
         pos: {type: 'net', value: 'RAW'},
         neg: {type: 'net', value: 'GND'}
