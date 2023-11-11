@@ -1,15 +1,17 @@
 module.exports = {
     params: {
-        designator: 'S', // for switch
+        designator: 'B', // for Button
         r1: {type: 'net', value: 'GND'},
         r2: {type: 'net', value: 'RST'},
-        class: 'S', 
 	    reverse: true
     },
     body: p => {
 	    const standard = `
 	(module Button_Switch_SMD:SW_SPST_B3U-1000P (layer F.Cu) (tedit 5A02FC95)
         ${p.at /* parametric position */}
+		${'' /* footprint reference */}
+		(fp_text reference "${p.ref}" (at 0 2.55) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1 1) (thickness 0.15))))
+		(fp_text value "" (at 0 -2.55) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
 	  (descr "Ultra-small-sized Tactile Switch with High Contact Reliability, Top-actuated Model, without Ground Terminal, without Boss")
 	  (tags "Tactile Switch")
 	  (attr smd)

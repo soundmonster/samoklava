@@ -5,13 +5,13 @@ module.exports = {
         net: undefined
     },
     params: {
-        class: 'HOLE',
+        designator: 'HOLE',
         class: 'HOLE',
     },
     body: p => `
     (module "MountingHole_2.2mm_M2_Pad_Via" (version 20210722) (generator pcbnew) (layer "F.Cu")
       (tedit 56DDB9C7)
-      ${p.at /* parametric position */} 
+      ${p.at /* parametric position */}
     
       (fp_text reference "${p.ref}" (at 0 -3.2) (layer "F.SilkS") ${p.ref_hide} 
         (effects (font (size 1 1) (thickness 0.15)))
