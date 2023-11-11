@@ -411,7 +411,7 @@ pcbs:
       slider_power:
         what: slider_threeway
         where:
-          shift: [center_x - 18.15, center_y - 48.5]
+          shift: [center_x - 18.15, center_y - 48.25]
           rotate: 180
         params:
           from: Bplus
