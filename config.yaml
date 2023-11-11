@@ -428,7 +428,7 @@ pcbs:
           rotate: -90
         params:
           from: P0
-          left: thumb_tucky
+          left: thumb_inner
           right: trrs_data
           reversible: true
           # if the switch is verticle, reverse the left and right nets on back side
