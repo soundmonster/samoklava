@@ -404,10 +404,9 @@ pcbs:
         what: b3u1000p
         where:
           shift: [center_x - 8, center_y - 48]
-          rotate: 180
         params:
-          r1: GND
-          r2: RST
+          r2: GND
+          r1: RST
       slider_power:
         what: slider_threeway
         where:
