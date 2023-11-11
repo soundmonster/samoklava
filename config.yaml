@@ -6,8 +6,8 @@ units:
   # Padding Variables
   px: kx + 1
   py: ky + 1
-  center_x: 112.65
-  center_y: -127
+  center_x: 118
+  center_y: -121
   # Defaults to M2 Screws
   screwSize: 1.5
   standoffSize: 2.5
@@ -24,11 +24,11 @@ units:
   mounting_4_x: center_x+13
   mounting_4_y: center_y-45 
   # 102.65, 142
-  mounting_5_x: center_x-10
-  mounting_5_y: center_y-15 
+  mounting_5_x: center_x-20
+  mounting_5_y: center_y-13
   # 65.9, 138
   mounting_6_x: center_x-46.75
-  mounting_6_y: center_y-11.0 
+  mounting_6_y: center_y-13
 points:
   zones:
     matrix:
@@ -37,7 +37,7 @@ points:
       key:
         padding: 1ky
         spread: 1kx
-      rotate: -15
+      rotate: -12
       columns:
         pinky:
           rows.bottom:
@@ -51,25 +51,30 @@ points:
         index.key.stagger: -0.25kx
         inner:
           key.stagger: -0.15kx
-          rows.top.rotate: 90
+          rows.top.rotate: -90
       rows:
         bottom.padding: kx
         home.padding: kx
         top.padding: kx
     thumb:
       anchor:
-        ref: matrix_index_bottom
-        shift: [0.6kx, -1.2kx]
-        rotate: -10
+        ref: matrix_middle_bottom
+        shift: [0.4kx, -1.35kx]
       columns:
+        inner:
+          key.name: thumb_inner
         tucky:
-          key.name: thumb_tucky
+          key:
+            name: thumb_tucky
+            stagger: -2
+            splay: -14
+            shift: [2, 0]
         reachy:
           key.spread: kx
           key.splay: -14
           key.stagger: 3
           key.origin: [-0.5kx, -0.5kx]
-          key.shift: [1, 0]
+          key.shift: [3, 0]
           key.rotate: 90
           key.width: 1.5kx
           key.name: thumb_reachy
@@ -134,9 +139,10 @@ outlines:
         - shift: [center_x-50, center_y+50]
         - shift: [100, 0]
         - shift: [0, -100]
-        - shift: [-40, 0]
-        - shift: [-15, 15]
-        - shift: [-45, 0]
+        # - shift: [-40, 0]
+        # - shift: [-15, 15]
+        # - shift: [-45, 0]
+        - shift: [-100, 0]
       fillet: 2
   pcb_outline_combo:
     - name: pcb_outline
@@ -343,16 +349,15 @@ pcbs:
           mx: true
           mx_hotswap: true
           mx_reverse: true
-          mx_pth: true
           choc: true
           choc_hotswap: true
           choc_reverse: true
-          choc_pth: true
           keycaps: true
       mcu:
         what: promicro-pretty
         where:
-          - shift: [center_x - 34.8, center_y - 25]
+          shift: [center_x - 34.8, center_y - 32.25]
+          rotate: 90
         params:
           P7: matrix_pinky_top
           P18: matrix_ring_top
@@ -371,7 +376,6 @@ pcbs:
           P6: matrix_inner_bottom
           P8: thumb_tucky
           P9: thumb_reachy
-          P0: Switch18
           RAW: RAW
       trrs:
         what: trrs
@@ -382,38 +386,72 @@ pcbs:
           symmetric: true
           A: GND
           B: GND
-          C: Switch18
+          C: trrs_data
           D: VCC
       reset:
         what: reset_button
         where:
-          shift: [center_x - 4, center_y - 26]
-          rotate: -90
+          shift: [center_x - 10, center_y - 48]
+          rotate: 180
         params:
           from: GND
           to: RST
       reset2:
         what: b3u1000p
         where:
-          shift: [center_x - 4, center_y - 26]
-          rotate: -90
+          shift: [center_x - 10, center_y - 48]
+          rotate: 180
         params:
           r1: GND
           r2: RST
-      slider:
+      slider_power:
         what: slider_threeway
         where:
-          shift: [center_x - 11, center_y - 33.5]
+          shift: [center_x - 20.15, center_y - 48.5]
           rotate: 180
         params:
           from: Bplus
-          left: RAW
-          right: ''
+          left: ''
+          right: RAW
           reversible: true
+          # if the switch is verticle, reverse the left and right nets on back side
+          reverse_left_right: false 
+      slider_wireless:
+        what: slider_threeway
+        where:
+          shift: [center_x-12, center_y - 40]
+          rotate: -90
+        params:
+          from: P0
+          left: thumb_tucky
+          right: trrs_data
+          reversible: true
+          # if the switch is verticle, reverse the left and right nets on back side
+          reverse_left_right: true 
+      wireless_marker:
+        what: text
+        where:
+          shift: [center_x-15.2, center_y - 38]
+          rotate: 90
+        params:
+          layer: "F.SilkS"
+          text: "wireless"
+          h_size: .5
+          v_size: .5
+      wired_marker:
+        what: text
+        where:
+          shift: [center_x-15.2, center_y - 42]
+          rotate: 90
+        params:
+          layer: "B.SilkS"
+          text: "wired"
+          h_size: .5
+          v_size: .5
       jst:
         what: jstph_reversible
         where:
-          shift: [center_x-11, center_y-28.5]
+          shift: [center_x-20, center_y-42]
           rotate: 180
         params:
           pos: Bplus

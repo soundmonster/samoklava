@@ -5,7 +5,8 @@ module.exports = {
         from: undefined,
         left: undefined,
         right: undefined,
-        reversible: false
+        reversible: false,
+        reverse_left_right: false
     },
     body: p => {
         const info = `                
@@ -17,7 +18,7 @@ module.exports = {
             (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
             (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         `
-        function get_slider(_side){
+        function get_slider(_side, net1, net2, pad_1=1, pad_3=3){
             const left = _side == 'F' ? '-' : ''
             const right = _side == 'F' ? '' : '-'
 
@@ -41,9 +42,9 @@ module.exports = {
                 (pad "" np_thru_hole circle (at -1.5 0) (size 1 1) (drill 0.9) (layers *.Cu *.Mask))
 
                 ${'' /* pins */}
-                (pad 1 smd rect (at ${right}2.25 2.075 ${p.rot}) (size 0.9 1.25) (layers ${_side}.Cu ${_side}.Paste ${_side}.Mask) ${p.right.str})
+                (pad ${pad_1} smd rect (at ${right}2.25 2.075 ${p.rot}) (size 0.9 1.25) (layers ${_side}.Cu ${_side}.Paste ${_side}.Mask) ${net1})
                 (pad 2 smd rect (at ${left}0.75 2.075 ${p.rot}) (size 0.9 1.25) (layers ${_side}.Cu ${_side}.Paste ${_side}.Mask) ${p.from.str})
-                (pad 3 smd rect (at ${left}2.25 2.075 ${p.rot}) (size 0.9 1.25) (layers ${_side}.Cu ${_side}.Paste ${_side}.Mask) ${p.left.str})
+                (pad ${[pad_3]} smd rect (at ${left}2.25 2.075 ${p.rot}) (size 0.9 1.25) (layers ${_side}.Cu ${_side}.Paste ${_side}.Mask) ${net2})
                 
                 ${'' /* side mounts */}
                 (pad "" smd rect (at 3.7 -1.1 ${p.rot}) (size 0.9 0.9) (layers ${_side}.Cu ${_side}.Paste ${_side}.Mask))
@@ -55,16 +56,18 @@ module.exports = {
         }
         
         if (p.reversible){
+            const slider_r = p.reverse_left_right ? get_slider('B', p.left.str, p.right.str, pad_1=3, pad_3=1) : get_slider('B', p.right.str, p.left.str)
+
             return `
             ${info}
-            ${get_slider('F')}
-            ${get_slider('B')})
+            ${get_slider('F', p.right.str, p.left.str)}
+            ${slider_r})
             `
         }
         else{
             return `
             ${info}
-            ${get_slider(p.side)})
+            ${get_slider(p.side, p.right.str, p.left.str)})
             `
         }
     }
