@@ -6,29 +6,29 @@ units:
   # Padding Variables
   px: kx + 1
   py: ky + 1
-  center_x: 118
+  center_x: 118.34
   center_y: -121
   # Defaults to M2 Screws
   screwSize: 1.5
   standoffSize: 2.5
   # 65.9, 81
-  mounting_1_x: center_x-46.75
-  mounting_1_y: center_y+46 
+  mounting_1_x: center_x-47
+  mounting_1_y: center_y+47 
   # 146.65, 81
   mounting_2_x: center_x+34 
-  mounting_2_y: center_y+46 
+  mounting_2_y: center_y+47 
   # 158.5, 146 mm
-  mounting_3_x: center_x+45.85
+  mounting_3_x: center_x+47
   mounting_3_y: center_y-19
   # 125.65, 172
   mounting_4_x: center_x+13
-  mounting_4_y: center_y-45 
+  mounting_4_y: center_y-47 
   # 102.65, 142
   mounting_5_x: center_x-20
   mounting_5_y: center_y-13
   # 65.9, 138
-  mounting_6_x: center_x-46.75
-  mounting_6_y: center_y-13
+  mounting_6_x: center_x-47
+  mounting_6_y: center_y-47
 points:
   zones:
     matrix:
@@ -41,17 +41,17 @@ points:
       columns:
         pinky:
           rows.bottom:
-            rotate: 90
-          rows.home:
             rotate: -90
-            shift: [1kx, -1kx]
+          rows.home:
+            rotate: 90
+            shift: [-1kx, -1kx]
         ring.key:
           stagger: 0.25kx
         middle.key.stagger: 0.25kx
         index.key.stagger: -0.25kx
         inner:
           key.stagger: -0.15kx
-          rows.top.rotate: -90
+          rows.top.rotate: 90
       rows:
         bottom.padding: kx
         home.padding: kx
@@ -336,9 +336,13 @@ cases:
       operation: add
 pcbs:
   board:
-    outlines.edge:
-      outline: pcb_outline
-      layer: Edge.Cuts
+    outlines:
+      edge:
+        outline: pcb_outline
+        layer: Edge.Cuts
+      control_area:
+        outline: control_area
+        layer: Dwgs.User
     footprints:
       keys:
         what: key-switches
@@ -349,14 +353,19 @@ pcbs:
           mx: true
           mx_hotswap: true
           mx_reverse: true
-          choc: true
-          choc_hotswap: true
-          choc_reverse: true
+          mx_pth: false
+          mx_rev_pad: true
+          gateron_lp: true
+          gateron_lp_hotswap: true
+          gateron_lp_reverse: true
+          gateron_lp_pth: false
+          gateron_lp_rev_pad: true
+          gateron_lp_neg_y: true
           keycaps: true
       mcu:
         what: promicro-pretty
         where:
-          shift: [center_x - 34.8, center_y - 32.25]
+          shift: [center_x - 32.8, center_y - 32.25]
           rotate: 90
         params:
           P7: matrix_pinky_top
@@ -391,7 +400,7 @@ pcbs:
       reset:
         what: reset_button
         where:
-          shift: [center_x - 10, center_y - 48]
+          shift: [center_x - 8, center_y - 48]
           rotate: 180
         params:
           from: GND
@@ -399,7 +408,7 @@ pcbs:
       reset2:
         what: b3u1000p
         where:
-          shift: [center_x - 10, center_y - 48]
+          shift: [center_x - 8, center_y - 48]
           rotate: 180
         params:
           r1: GND
@@ -407,7 +416,7 @@ pcbs:
       slider_power:
         what: slider_threeway
         where:
-          shift: [center_x - 20.15, center_y - 48.5]
+          shift: [center_x - 18.15, center_y - 48.5]
           rotate: 180
         params:
           from: Bplus
@@ -415,11 +424,12 @@ pcbs:
           right: RAW
           reversible: true
           # if the switch is verticle, reverse the left and right nets on back side
-          reverse_left_right: false 
+          # or to just make the wiring easier
+          reverse_left_right: true 
       slider_wireless:
         what: slider_threeway
         where:
-          shift: [center_x-12, center_y - 40]
+          shift: [center_x-10, center_y - 40]
           rotate: -90
         params:
           from: P0
@@ -431,27 +441,47 @@ pcbs:
       wireless_marker:
         what: text
         where:
-          shift: [center_x-15.2, center_y - 38]
+          shift: [center_x-13.2, center_y - 38]
           rotate: 90
         params:
           layer: "F.SilkS"
           text: "wireless"
           h_size: .5
           v_size: .5
+      wireless_box:
+        what: text
+        where:
+          shift: [center_x-12, center_y - 38.4]
+          rotate: 90
+        params:
+          layer: "F.SilkS"
+          text: "口"
+          h_size: 1.5
+          v_size: 2.2
       wired_marker:
         what: text
         where:
-          shift: [center_x-15.2, center_y - 42]
+          shift: [center_x-13.2, center_y - 42]
           rotate: 90
         params:
           layer: "B.SilkS"
           text: "wired"
           h_size: .5
           v_size: .5
+      wired_box:
+        what: text
+        where:
+          shift: [center_x-12, center_y - 41.5]
+          rotate: 90
+        params:
+          layer: "B.SilkS"
+          text: "口"
+          h_size: 1.5
+          v_size: 2.2
       jst:
         what: jstph_reversible
         where:
-          shift: [center_x-20, center_y-42]
+          shift: [center_x-18, center_y-42]
           rotate: 180
         params:
           pos: Bplus
