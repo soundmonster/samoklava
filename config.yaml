@@ -24,8 +24,8 @@ units:
   mounting_4_x: center_x+13
   mounting_4_y: center_y-47 
   # 102.65, 142
-  mounting_5_x: center_x-20
-  mounting_5_y: center_y-13
+  mounting_5_x: center_x-15
+  mounting_5_y: center_y-14
   # 65.9, 138
   mounting_6_x: center_x-47
   mounting_6_y: center_y-47
@@ -79,61 +79,41 @@ points:
           key.width: 1.5kx
           key.name: thumb_reachy
 outlines:
-  thumb:
+  _thumb:
     - what: rectangle
       where: thumb_reachy
       bound: true
       size: [1.5kx, ky]
-  padded_thumb:
+  _padded_thumb:
     - what: rectangle
       where: thumb_reachy
       bound: true
       size: [1.5px, py]
-  keys:
+  _keys:
     - what: rectangle
       where: true
       size: [kx, ky]
-  padded_keys:
+  _padded_keys:
     - what: rectangle
       where: true
       size: [px, py]
   key_outline:
-    - name: keys
-    - +thumb
-  expanded_key_outline:
-    - name: padded_keys
-    - +padded_thumb
-  remove_keys_island:
-    - what: polygon
-      points:
-      - ref: thumb_tucky
-        shift: [-.5px, .5px]
-      - ref: thumb_tucky
-        shift: [-.5px, .8px]
-      - ref: matrix_inner_bottom
-        shift: [.5px, -.25px]
-      - ref: thumb_reachy
-        shift: [0.75px, 0.5px]
-      - ref: thumb_reachy
-        shift: [0.75px, 0.4px]
-      - ref: thumb_reachy
-        shift: [-0.75px, 0.4px]
-      - ref: thumb_reachy
-        shift: [-0.75px, 0.5px]
-  expanded_keys_bounded:
-    - name: expanded_key_outline
-    - +remove_keys_island
-  limits:
+    - name: _keys
+    - +_thumb
+  _expanded_key_outline:
+    - name: _padded_keys
+    - +_padded_thumb
+  _limits:
     - what: rectangle
       size: [100, 100]
       adjust.shift: [center_x, center_y]
   combo:
-    - name: limits
+    - name: _limits
     - operation: stack
-      name: keys
+      name: _keys
     - operation: stack
-      name: thumb
-  pcb_outline:
+      name: _thumb
+  _pcb_outline:
     - what: polygon
       points:
         - shift: [center_x-50, center_y+50]
@@ -145,32 +125,32 @@ outlines:
         - shift: [-100, 0]
       fillet: 2
   pcb_outline_combo:
-    - name: pcb_outline
+    - name: _pcb_outline
     - operation: stack
-      name: keys
+      name: _keys
     - operation: stack
-      name: limits
-  case_outline:
+      name: _limits
+  _case_outline:
     - what: polygon
       points:
-        - shift: [center_x-57, center_y+56]
-        - shift: [115, 0]
-        - shift: [0, -115]
+        - shift: [center_x-54, center_y+53]
+        - shift: [112, 0]
+        - shift: [0, -112]
         - shift: [-40, 0]
-        - shift: [-23.5, 23.5]
-        - shift: [-51.5, 0]
+        - shift: [-9, 9]
+        - shift: [-63, 0]
       fillet: 2
-  case_outline_xl:
+  _case_outline_xl:
     - what: polygon
       points:
-        - shift: [center_x-59, center_y+58]
-        - shift: [119, 0]
-        - shift: [0, -119]
+        - shift: [center_x-56, center_y+55]
+        - shift: [116, 0]
+        - shift: [0, -116]
         - shift: [-43, 0]
-        - shift: [-23.5, 23.5]
-        - shift: [-52.5, 0]
+        - shift: [-9, 9]
+        - shift: [-64, 0]
       fillet: 2
-  mounting:
+  _mounting:
     - what: circle
       where.shift: [mounting_1_x, mounting_1_y]
       radius: screwSize
@@ -189,7 +169,7 @@ outlines:
     - what: circle
       where.shift: [mounting_6_x, mounting_6_y]
       radius: screwSize
-  standoff:
+  _standoff:
     - what: circle
       where.shift: [mounting_1_x, mounting_1_y]
       radius: standoffSize
@@ -211,15 +191,15 @@ outlines:
   control_area:
     - what: polygon
       points:
-        - shift: [center_x-57, center_y-15.5]
-        - shift: [40, 0]
-        - shift: [7, -7]
-        - shift: [10.5, 0]
-        - shift: [0, -19]
-        - shift: [-6, 6]
-        - shift: [-51.5, 0]
-        #- shift: [0, 20]
-      fillet: 1.99
+        - shift: [center_x-44, center_y-50]
+        - shift: [0, 38]
+        - shift: [22.5, 0]
+        - shift: [9, -9]
+        - shift: [0, -12]
+        - shift: [10, -2]
+        - shift: [5, -5]
+        - shift: [0, -10]
+      fillet: 1
   plate:
     - what: polygon
       where: true
@@ -265,50 +245,59 @@ outlines:
       where: true
       size: [15, 15]
   
+  case_outline_combo:
+    - name: _case_outline
+    - ^_case_outline_xl
+    - ^_pcb_outline
+    - ^_expanded_key_outline
+    - ^_mounting
+    - ^_standoff
+    - ^control_area
+
   case_outline_bottom:
-    - name: case_outline
-    - ^case_outline_xl
-    - ^mounting
-    - ^standoff
+    - name: _case_outline
+    - ^_case_outline_xl
+    - ^_mounting
+    - ^_standoff
   case_outline_top:
-    - name: case_outline
-    - ^case_outline_xl
-    # - ^pcb_outline
-    - ^expanded_keys_bounded
-    - ^mounting
-    - ^standoff
+    - name: _case_outline
+    - ^_case_outline_xl
+    # - ^_pcb_outline
+    - ^_expanded_key_outline
+    - ^_mounting
+    - ^_standoff
     - ^control_area
   plate_combo:
     - name: plate
-    - ^case_outline
-    - ^standoff
+    - ^_case_outline
+    - ^_standoff
     - -control_area
-    - ^expanded_key_outline
+    - ^_expanded_key_outline
   plate_combo_nokeys:
     - name: plate
-    - ^case_outline
-    - ^standoff
+    - ^_case_outline
+    - ^_standoff
     - -control_area
   plate_supports_combo:
     - name: plate_supports
-    - ^case_outline
-    - -standoff
+    - ^_case_outline
+    - -_standoff
     - -control_area
 cases:
-  outline:
-    - name: case_outline
+  _outline:
+    - name: _case_outline
       extrude: 1
-  xl_outline:
-    - name: case_outline_xl
+  _xl_outline:
+    - name: _case_outline_xl
       extrude: 1
   # assuming 0.6mm pcb, this goes to half a pcb
   _outerWall:
-    - name: case_outline_xl
+    - name: _case_outline_xl
       extrude: 5.3
   _innerWall:
-    - name: case_outline
+    - name: _case_outline
       extrude: 5.3
-  wall:
+  _wall:
     - what: case
       name: _outerWall
       operation: add
@@ -316,10 +305,10 @@ cases:
       name: _innerWall
       operation: subtract
   _holes:
-    - name: mounting
+    - name: _mounting
       extrude: 4
   _standoffs:
-    - name: standoff
+    - name: _standoff
       extrude: 4
   bottom_case:
     - what: case
@@ -329,19 +318,25 @@ cases:
       name: _holes
       operation: subtract
     - what: case
-      name: xl_outline
+      name: _xl_outline
       operation: add
     - what: case
-      name: wall
+      name: _wall
       operation: add
 pcbs:
   board:
     outlines:
       edge:
-        outline: pcb_outline
+        outline: _pcb_outline
         layer: Edge.Cuts
       control_area:
         outline: control_area
+        layer: Dwgs.User
+      case_outline:
+        outline: _case_outline
+        layer: Dwgs.User
+      case_outline_xl:
+        outline: _case_outline_xl
         layer: Dwgs.User
     footprints:
       keys:
