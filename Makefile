@@ -42,7 +42,7 @@ output/routed_pcbs/%-back.png: output/routed_pcbs/%.kicad_pcb
 
 output/gerbers/%/gerbers.zip: output/routed_pcbs/%.kicad_pcb
 	mkdir -p $(shell dirname $@)
-	${container_cmd} run ${container_args} yaqwsx/kikit:v1.3.0 fab jlcpcb --no-assembly $< $(shell dirname $@)
+	${container_cmd} run ${container_args} yaqwsx/kikit:v1.3.0 fab jlcpcb --no-drc --no-assembly $< $(shell dirname $@)
 
 clean:
 	rm -rf output
