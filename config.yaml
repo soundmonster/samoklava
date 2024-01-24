@@ -2,7 +2,7 @@ meta:
   engine: 4.0.4
   name: samoklava
   version: 0.3
-  author: soundmonnster
+  author: soundmonster
   url: https://github.com/soundmonster/samoklava
 units:
   kx: cx
