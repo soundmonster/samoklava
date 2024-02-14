@@ -260,8 +260,8 @@ pcbs:
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
-      mcu_l:
-        what: promicro
+      mcu_r:
+        what: promicro_flippable
         where:
           ref:
             - matrix_inner_top
@@ -269,6 +269,7 @@ pcbs:
           rotate: 270
         params:
           orientation: up
+          silk_layer: B.SilkS
           P4: row_top
           P5: row_home
           P6: row_bottom
@@ -278,8 +279,8 @@ pcbs:
           P18: col_middle
           P19: col_ring
           P20: col_pinky
-      mcu_r:
-        what: promicro
+      mcu_l:
+        what: promicro_flippable
         where:
           ref:
             - matrix_inner_top
@@ -287,6 +288,7 @@ pcbs:
           rotate: 270
         params:
           orientation: down
+          silk_layer: F.SilkS
       pad_plus:
         what: pad
         where:
