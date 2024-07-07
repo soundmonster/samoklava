@@ -32,6 +32,11 @@ points:
     matrix:
       key.padding: ky
       columns:
+        func:
+          key:
+            stagger: 0 ky
+            spread: kx
+            column_net: col_func
         pinky:
           key:
             stagger: 0 ky
@@ -109,18 +114,18 @@ outlines:
           shift: [0.5 kx - 0.5px, -0.5 ky - 0.5 py]
         - ref: thumbfan_near_thumb
           shift: [-0.5 kx + 0.5 px, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_bottom
+        - ref: matrix_func_bottom
           shift: [0.5 kx - 0.5 py, -0.5 ky - 0.5 py]
-        - ref: matrix_pinky_home
+        - ref: matrix_func_home
         - ref: matrix_inner_home
   patch_outer:
     - what: polygon
       points:
         - ref: matrix_ring_top
         - ref: matrix_ring_bottom
-        - ref: matrix_pinky_bottom
+        - ref: matrix_func_bottom
           shift: [-0.5 (kx + px), 0]
-        - ref: matrix_pinky_top
+        - ref: matrix_func_top
           shift: [-0.5 (kx + px), 0]
   patch_inner:
     - what: polygon
@@ -168,7 +173,7 @@ outlines:
     bottom_left:
       what: circle
       where:
-        - ref: matrix_pinky_bottom
+        - ref: matrix_func_bottom
           shift: [0.5 kx, 0]
       radius: 1.05
     top_right:
@@ -278,6 +283,7 @@ pcbs:
           P18: col_middle
           P19: col_ring
           P20: col_pinky
+          P21: col_func
       mcu_r:
         what: promicro
         where:
@@ -390,7 +396,7 @@ pcbs:
         what: text
         where:
           ref:
-            - matrix_pinky_bottom
+            - matrix_func_bottom
           shift: [0.75 kx, 0]
         params:
           text: "samoklava v0.3\\nby soundmonster"
@@ -399,7 +405,7 @@ pcbs:
         what: text
         where:
           ref:
-            - matrix_pinky_bottom
+            - matrix_func_bottom
           shift: [0.75 kx, 0]
         params:
           layer: B.SilkS

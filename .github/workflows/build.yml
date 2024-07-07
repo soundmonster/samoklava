@@ -50,5 +50,5 @@ jobs:
       - name: Persist output
         uses: actions/upload-artifact@v2
         with:
-          name: samoklava-routed-pcbs-and-gerbers
+          name: corne-choc-spaced-routed-pcbs-and-gerbers
           path: output
